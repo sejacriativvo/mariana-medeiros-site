@@ -189,6 +189,7 @@
     border-left: 1px solid rgba(232, 184, 161, 0.32);
   }
   /* mobile: stack vertical (mark em cima, tag embaixo) — sem divisor */
+  /* tag aparece APENAS quando rola (evita duplicação com o eyebrow do hero) */
   @media (max-width: 980px) {
     .nav-logo {
       flex-direction: column;
@@ -201,6 +202,16 @@
       border-left: none;
       font-size: 8px;
       letter-spacing: 0.28em;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.4s var(--ease-soft), opacity 0.35s, margin-top 0.4s;
+      margin-top: 0;
+    }
+    .nav.scrolled .nav-logo .tag {
+      max-height: 16px;
+      opacity: 1;
+      margin-top: 4px;
     }
   }
   .nav-menu { display: flex; gap: 30px; align-items: center; flex-wrap: nowrap; }
@@ -249,37 +260,49 @@
     align-items: center;
     padding: 160px clamp(40px, 6vw, 100px) 100px clamp(40px, 7vw, 120px);
   }
-  /* Hero clean — sem foto, só degradê escuro premium com glows quentes */
+  /* Desktop: foto da Mariana (FOTO HEADER original) com overlay verde */
   .hero-bg {
     position: absolute; inset: 0;
     z-index: 0;
-    background:
-      radial-gradient(ellipse 60% 50% at 78% 38%, rgba(198, 107, 74, 0.32) 0%, transparent 55%),
-      radial-gradient(ellipse 50% 45% at 12% 78%, rgba(122, 139, 111, 0.30) 0%, transparent 55%),
-      radial-gradient(ellipse 40% 35% at 92% 88%, rgba(184, 148, 100, 0.22) 0%, transparent 50%),
-      linear-gradient(135deg, var(--forest-950) 0%, var(--forest-900) 50%, #2a3a23 100%);
-  }
-  /* textura sutil de ruído pra não ficar 100% chapado (SVG noise inline) */
-  .hero-bg::after {
-    content: ""; position: absolute; inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.86 0 0 0 0 0.79 0 0 0 0 0.69 0 0 0 0.18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    opacity: 0.5;
-    mix-blend-mode: overlay;
-    pointer-events: none;
+    background-image: url("assets/foto-header-desktop.jpg?v=5");
+    background-size: cover;
+    background-position: center;
+    filter: saturate(1.05) contrast(1.02);
   }
   .hero-overlay {
     position: absolute; inset: 0;
     z-index: 1;
     pointer-events: none;
     background:
-      linear-gradient(180deg, transparent 0%, transparent 70%, rgba(31, 45, 26, 0.45) 100%);
+      linear-gradient(95deg,
+        rgba(31, 45, 26, 0.94) 0%,
+        rgba(31, 45, 26, 0.86) 28%,
+        rgba(31, 45, 26, 0.48) 55%,
+        rgba(31, 45, 26, 0.12) 85%,
+        rgba(31, 45, 26, 0.0) 100%
+      ),
+      radial-gradient(ellipse at 80% 45%, rgba(198, 107, 74, 0.22) 0%, transparent 55%),
+      linear-gradient(180deg, rgba(31, 45, 26, 0.25) 0%, transparent 25%, transparent 70%, rgba(31, 45, 26, 0.55) 100%);
   }
+  /* Mobile: sem foto, gradient escuro premium + glows + textura ruído */
   @media (max-width: 980px) {
     .hero-bg {
+      background-image: none;
       background:
         radial-gradient(ellipse 70% 35% at 75% 22%, rgba(198, 107, 74, 0.30) 0%, transparent 55%),
         radial-gradient(ellipse 80% 40% at 20% 85%, rgba(122, 139, 111, 0.28) 0%, transparent 55%),
         linear-gradient(180deg, var(--forest-950) 0%, var(--forest-900) 60%, #2a3a23 100%);
+      filter: none;
+    }
+    .hero-bg::after {
+      content: ""; position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.86 0 0 0 0 0.79 0 0 0 0 0.69 0 0 0 0.18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.4;
+      mix-blend-mode: overlay;
+      pointer-events: none;
+    }
+    .hero-overlay {
+      background: linear-gradient(180deg, transparent 0%, transparent 75%, rgba(31, 45, 26, 0.4) 100%);
     }
   }
   /* arcos decorativos animados — mais presença sem foto */
@@ -1401,8 +1424,8 @@
     .nav-cta { display: inline-flex; padding: 11px 18px; font-size: 12px; }
     .hero { padding: 140px 28px 90px; }
     .hero-vline { display: none; }
-    .hero-badges { gap: 24px; margin-top: 48px; }
-    .hero-badge .num { font-size: 30px; }
+    /* mobile: os 3 badges grandes viram um text-marquee horizontal no rodapé */
+    .hero-badges { display: none; }
     .sobre-grid { grid-template-columns: 1fr; gap: 56px; }
     .sobre-img-frame { display: none; }
     .pq-grid { grid-template-columns: 1fr; }
@@ -1417,18 +1440,81 @@
     .proc-grid { grid-template-columns: 1fr; }
     .foot-grid { grid-template-columns: 1fr; }
     .foot-bottom { flex-direction: column; text-align: center; }
-    .hero { padding: 130px 22px 80px; }
-    .hero-title { font-size: 42px; line-height: 1.02; }
-    .hero-sub { font-size: 15px; line-height: 1.5; margin-bottom: 36px; }
-    .hero-badges { gap: 18px; margin-top: 36px; }
-    .hero-badge .num { font-size: 24px; }
-    .hero-badge .lbl { font-size: 11px; }
-    .hero-ctas { gap: 12px; }
+    .hero { padding: 120px 22px 110px; }
+    .hero-title { font-size: 36px; line-height: 1.04; margin-bottom: 22px; }
+    .hero-sub { font-size: 14px; line-height: 1.55; margin-bottom: 30px; }
+    .hero-eyebrow { margin-bottom: 28px; }
+    .hero-eyebrow .micro { font-size: 10px; letter-spacing: 0.22em; }
+    .hero-ctas { gap: 10px; }
     .hero-ctas .btn { padding: 13px 20px; font-size: 13px; }
     .section-head h2 { font-size: 32px; }
     .pil-item, .pq-card, .dep-card, .proc-step { padding: 32px 22px; }
     .wa-float { width: 58px; height: 58px; bottom: 22px; right: 22px; }
     .wa-float svg { width: 26px; height: 26px; }
+  }
+  /* === Hero badges marquee (mobile) — substitui os 3 badges grandes === */
+  .hero-info-marquee {
+    display: none;
+  }
+  @media (max-width: 980px) {
+    .hero-info-marquee {
+      display: block;
+      position: absolute;
+      bottom: 60px;
+      left: 0; right: 0;
+      width: 100%;
+      overflow: hidden;
+      z-index: 3;
+      pointer-events: none;
+      padding: 12px 0;
+      border-top: 1px solid rgba(232, 184, 161, 0.16);
+      border-bottom: 1px solid rgba(232, 184, 161, 0.16);
+      background: rgba(31, 45, 26, 0.35);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0, black 6%, black 94%, transparent 100%);
+              mask-image: linear-gradient(90deg, transparent 0, black 6%, black 94%, transparent 100%);
+    }
+    .hero-info-track {
+      display: flex;
+      gap: 28px;
+      width: max-content;
+      animation: hero-info-loop 28s linear infinite;
+      will-change: transform;
+    }
+    .hero-info-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 28px;
+      color: var(--cream-100);
+      font-family: "Inter", sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .hero-info-item .num {
+      font-family: "Fraunces", serif;
+      font-style: italic;
+      font-size: 16px;
+      letter-spacing: -0.01em;
+      color: var(--terra-300);
+      text-transform: none;
+      font-weight: 500;
+    }
+    .hero-info-item .dot {
+      width: 4px; height: 4px; border-radius: 50%;
+      background: var(--terra-500);
+      box-shadow: 0 0 8px var(--terra-500);
+      display: inline-block;
+    }
+    @keyframes hero-info-loop {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    /* scroll-hint sai do caminho do marquee */
+    .scroll-hint { display: none; }
   }
   /* trava o scroll do body quando o mobile menu tá aberto */
   body.menu-open { overflow: hidden; }
@@ -1622,6 +1708,18 @@
         <span class="num">+ mulheres</span>
         <span class="lbl">Construindo o corpo dos sonhos</span>
       </div>
+    </div>
+  </div>
+
+  <!-- Marquee de informações (só aparece no mobile) — substitui os 3 badges grandes -->
+  <div class="hero-info-marquee" aria-hidden="true">
+    <div class="hero-info-track">
+      <span class="hero-info-item"><span class="num">100%</span> sem glúten · lactose · açúcar <span class="dot"></span></span>
+      <span class="hero-info-item">Atendimento online no Brasil inteiro <span class="dot"></span></span>
+      <span class="hero-info-item"><span class="num">+ mulheres</span> construindo o corpo dos sonhos <span class="dot"></span></span>
+      <span class="hero-info-item"><span class="num">100%</span> sem glúten · lactose · açúcar <span class="dot"></span></span>
+      <span class="hero-info-item">Atendimento online no Brasil inteiro <span class="dot"></span></span>
+      <span class="hero-info-item"><span class="num">+ mulheres</span> construindo o corpo dos sonhos <span class="dot"></span></span>
     </div>
   </div>
 

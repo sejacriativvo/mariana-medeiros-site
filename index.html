@@ -1452,7 +1452,7 @@
     .wa-float { width: 58px; height: 58px; bottom: 22px; right: 22px; }
     .wa-float svg { width: 26px; height: 26px; }
   }
-  /* === Hero badges marquee (mobile) — substitui os 3 badges grandes === */
+  /* === Hero badges marquee (mobile) — fecha o hero, items com num + label === */
   .hero-info-marquee {
     display: none;
   }
@@ -1460,61 +1460,74 @@
     .hero-info-marquee {
       display: block;
       position: absolute;
-      bottom: 60px;
+      bottom: 0;
       left: 0; right: 0;
       width: 100%;
       overflow: hidden;
       z-index: 3;
       pointer-events: none;
-      padding: 12px 0;
-      border-top: 1px solid rgba(232, 184, 161, 0.16);
-      border-bottom: 1px solid rgba(232, 184, 161, 0.16);
-      background: rgba(31, 45, 26, 0.35);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      -webkit-mask-image: linear-gradient(90deg, transparent 0, black 6%, black 94%, transparent 100%);
-              mask-image: linear-gradient(90deg, transparent 0, black 6%, black 94%, transparent 100%);
+      padding: 22px 0;
+      border-top: 1px solid rgba(232, 184, 161, 0.22);
+      background: rgba(31, 45, 26, 0.45);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0, black 8%, black 92%, transparent 100%);
+              mask-image: linear-gradient(90deg, transparent 0, black 8%, black 92%, transparent 100%);
     }
     .hero-info-track {
       display: flex;
-      gap: 28px;
+      gap: 0;
       width: max-content;
-      animation: hero-info-loop 28s linear infinite;
+      animation: hero-info-loop 32s linear infinite;
       will-change: transform;
     }
     .hero-info-item {
       display: inline-flex;
+      flex-direction: column;
       align-items: center;
-      gap: 28px;
+      text-align: center;
+      gap: 6px;
+      padding: 0 28px;
       color: var(--cream-100);
-      font-family: "Inter", sans-serif;
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      font-weight: 500;
       white-space: nowrap;
+      position: relative;
+      min-width: 200px;
+    }
+    /* separador vertical entre items */
+    .hero-info-item::after {
+      content: "";
+      position: absolute;
+      right: 0; top: 50%;
+      transform: translateY(-50%);
+      width: 1px; height: 28px;
+      background: rgba(232, 184, 161, 0.22);
     }
     .hero-info-item .num {
       font-family: "Fraunces", serif;
       font-style: italic;
-      font-size: 16px;
-      letter-spacing: -0.01em;
-      color: var(--terra-300);
-      text-transform: none;
       font-weight: 500;
+      font-size: 30px;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      color: var(--terra-300);
     }
-    .hero-info-item .dot {
-      width: 4px; height: 4px; border-radius: 50%;
-      background: var(--terra-500);
-      box-shadow: 0 0 8px var(--terra-500);
-      display: inline-block;
+    .hero-info-item .lbl {
+      font-family: "Inter", sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(251, 248, 242, 0.78);
+      font-weight: 500;
+      line-height: 1.3;
     }
     @keyframes hero-info-loop {
       from { transform: translateX(0); }
       to   { transform: translateX(-50%); }
     }
-    /* scroll-hint sai do caminho do marquee */
+    /* scroll-hint sai (marquee tomou o lugar do rodapé) */
     .scroll-hint { display: none; }
+    /* hero zera o padding-bottom — marquee é o fechamento visual */
+    .hero { padding-bottom: 110px !important; }
   }
   /* trava o scroll do body quando o mobile menu tá aberto */
   body.menu-open { overflow: hidden; }
@@ -1711,15 +1724,15 @@
     </div>
   </div>
 
-  <!-- Marquee de informações (só aparece no mobile) — substitui os 3 badges grandes -->
+  <!-- Marquee de informações (só aparece no mobile) — fecha o hero -->
   <div class="hero-info-marquee" aria-hidden="true">
     <div class="hero-info-track">
-      <span class="hero-info-item"><span class="num">100%</span> sem glúten · lactose · açúcar <span class="dot"></span></span>
-      <span class="hero-info-item">Atendimento online no Brasil inteiro <span class="dot"></span></span>
-      <span class="hero-info-item"><span class="num">+ mulheres</span> construindo o corpo dos sonhos <span class="dot"></span></span>
-      <span class="hero-info-item"><span class="num">100%</span> sem glúten · lactose · açúcar <span class="dot"></span></span>
-      <span class="hero-info-item">Atendimento online no Brasil inteiro <span class="dot"></span></span>
-      <span class="hero-info-item"><span class="num">+ mulheres</span> construindo o corpo dos sonhos <span class="dot"></span></span>
+      <span class="hero-info-item"><span class="num">100%</span><span class="lbl">sem glúten · lactose · açúcar</span></span>
+      <span class="hero-info-item"><span class="num">Online</span><span class="lbl">Atendimento em todo o Brasil</span></span>
+      <span class="hero-info-item"><span class="num">+ mulheres</span><span class="lbl">construindo o corpo dos sonhos</span></span>
+      <span class="hero-info-item"><span class="num">100%</span><span class="lbl">sem glúten · lactose · açúcar</span></span>
+      <span class="hero-info-item"><span class="num">Online</span><span class="lbl">Atendimento em todo o Brasil</span></span>
+      <span class="hero-info-item"><span class="num">+ mulheres</span><span class="lbl">construindo o corpo dos sonhos</span></span>
     </div>
   </div>
 

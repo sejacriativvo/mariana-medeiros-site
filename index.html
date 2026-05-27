@@ -12,8 +12,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <!-- preload do hero responsivo (carrega primeiro pra LCP rápido) -->
-<link rel="preload" as="image" href="assets/foto-header-mobile.jpg?v=3" media="(max-width: 980px)">
-<link rel="preload" as="image" href="assets/foto-header-desktop.jpg?v=3" media="(min-width: 981px)">
+<link rel="preload" as="image" href="assets/foto-header-mobile.jpg?v=4" media="(max-width: 980px)">
+<link rel="preload" as="image" href="assets/foto-header-desktop.jpg?v=4" media="(min-width: 981px)">
 
 <style>
   /* ============ FONTE CRIATIVVO (marca d'água) ============ */
@@ -203,12 +203,13 @@
       letter-spacing: 0.28em;
     }
   }
-  .nav-menu { display: flex; gap: 38px; align-items: center; }
+  .nav-menu { display: flex; gap: 30px; align-items: center; flex-wrap: nowrap; }
   .nav-menu a {
     color: var(--cream-100); font-size: 14px; font-weight: 400;
     letter-spacing: -0.01em; opacity: 0.85;
     transition: opacity 0.25s, color 0.25s;
     position: relative;
+    white-space: nowrap;
   }
   .nav-menu a:hover { opacity: 1; color: var(--terra-300); }
   .nav-menu a::after {
@@ -220,16 +221,17 @@
   .nav-cta {
     background: var(--terra-600);
     color: var(--cream-100) !important;
-    padding: 11px 20px;
+    padding: 9px 18px;
     border-radius: 999px;
     font-size: 13px; font-weight: 600;
     letter-spacing: -0.01em;
     opacity: 1 !important;
     transition: transform 0.25s var(--ease-soft), background 0.25s, box-shadow 0.25s;
-    box-shadow: 0 6px 18px rgba(198, 107, 74, 0.24);
-    display: inline-flex; align-items: center; gap: 7px;
+    box-shadow: 0 6px 16px rgba(198, 107, 74, 0.22);
+    display: inline-flex; align-items: center; gap: 6px;
+    white-space: nowrap;
   }
-  .nav-cta .ic { width: 15px; height: 15px; }
+  .nav-cta .ic { width: 14px; height: 14px; }
   .nav-cta:hover {
     background: var(--terra-700); transform: translateY(-2px);
     box-shadow: 0 12px 26px rgba(168, 84, 47, 0.38);
@@ -249,7 +251,7 @@
   }
   .hero-bg {
     position: absolute; inset: 0;
-    background-image: url("assets/foto-header-desktop.jpg?v=3");
+    background-image: url("assets/foto-header-desktop.jpg?v=4");
     background-size: cover;
     background-position: center;
     z-index: 0;
@@ -271,8 +273,8 @@
   }
   @media (max-width: 980px) {
     .hero-bg {
-      background-image: url("assets/foto-header-mobile.jpg?v=3");
-      background-position: center center;
+      background-image: url("assets/foto-header-mobile.jpg?v=4");
+      background-position: 60% center;
     }
     .hero-overlay {
       background:

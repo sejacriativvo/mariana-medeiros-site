@@ -1,0 +1,2594 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mariana Medeiros — Nutricionista Esportiva & NutriChef</title>
+<meta name="description" content="Mariana Medeiros, nutricionista esportiva e NutriChef. Receitas sem glúten, sem lactose e sem açúcar pra mulheres que querem construir o corpo dos sonhos comendo de verdade.">
+<meta name="theme-color" content="#1F2D1A">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- preload do hero responsivo (carrega primeiro pra LCP rápido) -->
+<link rel="preload" as="image" href="assets/foto-header-mobile.jpg?v=3" media="(max-width: 980px)">
+<link rel="preload" as="image" href="assets/foto-header-desktop.jpg?v=3" media="(min-width: 981px)">
+
+<style>
+  /* ============ FONTE CRIATIVVO (marca d'água) ============ */
+  @font-face {
+    font-family: 'AVEstiana';
+    src: url('assets/AVEstiana-Black.otf') format('opentype');
+    font-weight: 900;
+    font-display: swap;
+  }
+  /* ============ FONTE DA LOGO DA MARIANA (Kenao Sans) ============ */
+  @font-face {
+    font-family: 'Kenao';
+    src: url('assets/Kenao.otf') format('opentype');
+    font-weight: 400;
+    font-display: swap;
+  }
+
+  /* ============ TOKENS ============ */
+  :root {
+    /* verdes (base profunda + sage) */
+    --forest-950: #1F2D1A;
+    --forest-900: #283A22;
+    --forest-800: #34472D;
+    --sage-600: #7A8B6F;
+    --sage-500: #8FA084;
+    --sage-300: #BFC9B6;
+
+    /* terracota (acento principal, no lugar do bege/dourado do marcio) */
+    --terra-700: #A8542F;
+    --terra-600: #C66B4A;
+    --terra-500: #D88567;
+    --terra-300: #E8B8A1;
+
+    /* cremes (off-white quente, fundo claro) */
+    --cream-100: #FBF8F2;
+    --cream-200: #F4EFE6;
+    --cream-300: #E9E1D1;
+    --cream-400: #DDD2BC;
+
+    /* dourado quente (premium, raro, só pra detalhe) */
+    --gold-600: #B89464;
+    --gold-500: #C8A57A;
+
+    /* neutros */
+    --ink-900: #1A1A18;
+    --ink-700: #3F4239;
+    --ink-500: #6E6F66;
+    --ink-400: #9A9B91;
+
+    --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-snap: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--cream-100);
+    color: var(--forest-950);
+    font-family: "Inter", sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+
+  /* ============ TIPOGRAFIA UTIL ============ */
+  .serif { font-family: "Fraunces", Georgia, serif; }
+  .micro {
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.30em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .italic { font-style: italic; }
+
+  /* linha 2 cores decorativa (assinatura visual) */
+  .line-two {
+    display: inline-flex;
+    width: 110px;
+    height: 3px;
+    vertical-align: middle;
+  }
+  .line-two span { flex: 1; }
+  .line-two .a { background: var(--cream-200); }
+  .line-two .b { background: var(--terra-600); }
+  .line-two.dark .a { background: var(--forest-900); }
+
+  /* ============ ANIMATION CLASSES ============ */
+  .reveal {
+    opacity: 0; transform: translateY(34px);
+    transition: opacity 1s var(--ease-soft), transform 1s var(--ease-soft);
+  }
+  .reveal.in-view { opacity: 1; transform: translateY(0); }
+  .reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 1s var(--ease-soft), transform 1s var(--ease-soft); }
+  .reveal-left.in-view { opacity: 1; transform: translateX(0); }
+  .reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 1s var(--ease-soft), transform 1s var(--ease-soft); }
+  .reveal-right.in-view { opacity: 1; transform: translateX(0); }
+
+  .reveal-stagger > * {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.8s var(--ease-soft), transform 0.8s var(--ease-soft);
+  }
+  .reveal-stagger.in-view > *:nth-child(1) { transition-delay: 0.05s; }
+  .reveal-stagger.in-view > *:nth-child(2) { transition-delay: 0.12s; }
+  .reveal-stagger.in-view > *:nth-child(3) { transition-delay: 0.19s; }
+  .reveal-stagger.in-view > *:nth-child(4) { transition-delay: 0.26s; }
+  .reveal-stagger.in-view > *:nth-child(5) { transition-delay: 0.33s; }
+  .reveal-stagger.in-view > *:nth-child(6) { transition-delay: 0.40s; }
+  .reveal-stagger.in-view > *:nth-child(7) { transition-delay: 0.47s; }
+  .reveal-stagger.in-view > *:nth-child(8) { transition-delay: 0.54s; }
+  .reveal-stagger.in-view > *:nth-child(9) { transition-delay: 0.61s; }
+  .reveal-stagger.in-view > * { opacity: 1; transform: translateY(0); }
+
+  /* float suave decorativo */
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-14px); }
+  }
+  @keyframes float-soft {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(8px, -12px) rotate(2deg); }
+    66% { transform: translate(-6px, 8px) rotate(-1.5deg); }
+  }
+  @keyframes pulse-ring {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(1.6); opacity: 0; }
+  }
+  @keyframes drift {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(20px, -20px); }
+  }
+
+  /* ============ NAV ============ */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 22px 0;
+    transition: background 0.45s var(--ease-soft), padding 0.45s var(--ease-soft), box-shadow 0.45s var(--ease-soft);
+    background: transparent;
+  }
+  .nav.scrolled {
+    background: rgba(31, 45, 26, 0.96);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 14px 0;
+    box-shadow: 0 12px 40px rgba(31, 45, 26, 0.22);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+  .nav-logo {
+    color: var(--cream-100);
+    display: inline-flex; align-items: center; gap: 12px;
+    line-height: 1;
+    transition: opacity 0.25s;
+  }
+  .nav-logo:hover { opacity: 0.85; }
+  .nav-logo .mark {
+    font-family: 'Kenao', "Inter", sans-serif;
+    font-weight: 400; font-size: 22px; letter-spacing: 0.04em;
+    font-style: normal;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .nav-logo .tag {
+    font-family: "Inter", sans-serif;
+    font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--terra-300);
+    line-height: 1;
+    font-weight: 500;
+    padding-left: 12px;
+    border-left: 1px solid rgba(232, 184, 161, 0.32);
+  }
+  /* mobile: stack vertical (mark em cima, tag embaixo) — sem divisor */
+  @media (max-width: 980px) {
+    .nav-logo {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+    .nav-logo .mark { font-size: 18px; letter-spacing: 0.05em; }
+    .nav-logo .tag {
+      padding-left: 0;
+      border-left: none;
+      font-size: 8px;
+      letter-spacing: 0.28em;
+    }
+  }
+  .nav-menu { display: flex; gap: 38px; align-items: center; }
+  .nav-menu a {
+    color: var(--cream-100); font-size: 14px; font-weight: 400;
+    letter-spacing: -0.01em; opacity: 0.85;
+    transition: opacity 0.25s, color 0.25s;
+    position: relative;
+  }
+  .nav-menu a:hover { opacity: 1; color: var(--terra-300); }
+  .nav-menu a::after {
+    content: ""; position: absolute; left: 0; bottom: -6px;
+    width: 0; height: 1px; background: var(--terra-300);
+    transition: width 0.3s var(--ease-soft);
+  }
+  .nav-menu a:hover::after { width: 100%; }
+  .nav-cta {
+    background: var(--terra-600);
+    color: var(--cream-100) !important;
+    padding: 11px 20px;
+    border-radius: 999px;
+    font-size: 13px; font-weight: 600;
+    letter-spacing: -0.01em;
+    opacity: 1 !important;
+    transition: transform 0.25s var(--ease-soft), background 0.25s, box-shadow 0.25s;
+    box-shadow: 0 6px 18px rgba(198, 107, 74, 0.24);
+    display: inline-flex; align-items: center; gap: 7px;
+  }
+  .nav-cta .ic { width: 15px; height: 15px; }
+  .nav-cta:hover {
+    background: var(--terra-700); transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(168, 84, 47, 0.38);
+  }
+  .nav-cta::after { display: none !important; }
+  .nav-burger { display: none; }
+
+  /* ============ HERO ============ */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    color: var(--cream-100);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 160px clamp(40px, 6vw, 100px) 100px clamp(40px, 7vw, 120px);
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background-image: url("assets/foto-header-desktop.jpg?v=3");
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    filter: saturate(1.05) contrast(1.02);
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(95deg,
+        rgba(31, 45, 26, 0.94) 0%,
+        rgba(31, 45, 26, 0.86) 28%,
+        rgba(31, 45, 26, 0.48) 55%,
+        rgba(31, 45, 26, 0.12) 85%,
+        rgba(31, 45, 26, 0.0) 100%
+      ),
+      radial-gradient(ellipse at 80% 45%, rgba(198, 107, 74, 0.22) 0%, transparent 55%),
+      linear-gradient(180deg, rgba(31, 45, 26, 0.25) 0%, transparent 25%, transparent 70%, rgba(31, 45, 26, 0.55) 100%);
+    z-index: 1;
+  }
+  @media (max-width: 980px) {
+    .hero-bg {
+      background-image: url("assets/foto-header-mobile.jpg?v=3");
+      background-position: center center;
+    }
+    .hero-overlay {
+      background:
+        linear-gradient(180deg,
+          rgba(31, 45, 26, 0.85) 0%,
+          rgba(31, 45, 26, 0.55) 45%,
+          rgba(31, 45, 26, 0.30) 65%,
+          rgba(31, 45, 26, 0.90) 100%
+        );
+    }
+  }
+  /* arcos decorativos animados */
+  .hero-arc-1 {
+    position: absolute; top: -10%; right: -10%;
+    width: 720px; height: 720px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(216, 133, 103, 0.16) 0%, transparent 70%);
+    z-index: 1; pointer-events: none;
+    animation: float-soft 14s ease-in-out infinite;
+  }
+  .hero-arc-2 {
+    position: absolute; bottom: -20%; left: -8%;
+    width: 620px; height: 620px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(143, 160, 132, 0.18) 0%, transparent 65%);
+    z-index: 1; pointer-events: none;
+    animation: drift 18s ease-in-out infinite;
+  }
+  .hero-arc-3 {
+    position: absolute; top: 30%; left: 50%;
+    width: 380px; height: 380px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(184, 148, 100, 0.12) 0%, transparent 70%);
+    z-index: 1; pointer-events: none;
+    animation: float-slow 11s ease-in-out infinite;
+  }
+  /* linha decorativa vertical à esquerda */
+  .hero-vline {
+    position: absolute; left: 40px; top: 35%; bottom: 35%;
+    width: 1px; background: rgba(232, 184, 161, 0.30);
+    z-index: 2; pointer-events: none;
+  }
+  .hero-vline::before {
+    content: ""; position: absolute; left: -3px; top: 50%;
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--terra-500);
+    box-shadow: 0 0 18px rgba(216, 133, 103, 0.7);
+  }
+  .hero-inner {
+    position: relative; z-index: 3;
+    max-width: 880px;
+    width: 100%;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 14px;
+    margin-bottom: 38px;
+    opacity: 0.92;
+  }
+  .hero-eyebrow .micro { color: var(--terra-300); }
+
+  .hero-title {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(54px, 7.5vw, 108px);
+    line-height: 0.96;
+    letter-spacing: -0.035em;
+    margin-bottom: 36px;
+    color: var(--cream-100);
+  }
+  .hero-title .accent { color: var(--terra-500); font-style: italic; font-weight: 400; }
+  .hero-title .soft { display: block; font-size: 0.62em; opacity: 0.78; font-weight: 300; margin-top: 8px; letter-spacing: -0.025em; }
+
+  .hero-sub {
+    font-size: clamp(17px, 1.5vw, 21px);
+    line-height: 1.55;
+    color: rgba(251, 248, 242, 0.85);
+    max-width: 620px;
+    margin-bottom: 50px;
+    font-weight: 300;
+  }
+  .hero-sub strong { color: var(--cream-100); font-weight: 500; }
+
+  .hero-ctas { display: flex; gap: 18px; flex-wrap: wrap; align-items: center; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 9px;
+    padding: 14px 24px;
+    border-radius: 999px;
+    font-family: "Inter", sans-serif;
+    font-size: 14px; font-weight: 600;
+    letter-spacing: -0.01em;
+    transition: transform 0.3s var(--ease-soft), background 0.3s, box-shadow 0.3s, color 0.3s;
+    cursor: pointer; border: none;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-primary {
+    background: var(--terra-600);
+    color: var(--cream-100);
+    box-shadow: 0 10px 24px rgba(198, 107, 74, 0.28);
+  }
+  .btn-primary:hover {
+    background: var(--terra-700);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px rgba(168, 84, 47, 0.38);
+  }
+  /* shimmer suave passando no botão de vez em quando, sutil, sem ser forçado */
+  .btn-primary::before {
+    content: "";
+    position: absolute; top: 0; left: -120%;
+    width: 60%; height: 100%;
+    background: linear-gradient(110deg, transparent 0%, rgba(255,255,255,0.18) 50%, transparent 100%);
+    transform: skewX(-20deg);
+    transition: left 0.7s var(--ease-soft);
+    pointer-events: none;
+  }
+  .btn-primary:hover::before { left: 130%; }
+  .btn-ghost {
+    background: transparent;
+    color: var(--cream-100);
+    border: 1px solid rgba(251, 248, 242, 0.32);
+  }
+  .btn-ghost:hover {
+    background: rgba(251, 248, 242, 0.08);
+    border-color: var(--terra-300);
+    color: var(--terra-300);
+    transform: translateY(-2px);
+  }
+  .btn .ic { width: 16px; height: 16px; }
+
+  /* badges abaixo do CTA hero */
+  .hero-badges {
+    display: flex; gap: 36px; flex-wrap: wrap;
+    margin-top: 64px;
+    padding-top: 38px;
+    border-top: 1px solid rgba(232, 184, 161, 0.18);
+    max-width: 620px;
+  }
+  .hero-badge {
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .hero-badge .num {
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 38px; font-weight: 500;
+    color: var(--terra-300);
+    letter-spacing: -0.03em; line-height: 1;
+  }
+  .hero-badge .lbl {
+    font-size: 12px;
+    color: rgba(251, 248, 242, 0.68);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  /* scroll hint */
+  .scroll-hint {
+    position: absolute;
+    bottom: 38px; left: 50%; transform: translateX(-50%);
+    color: var(--cream-100); opacity: 0.6;
+    font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase;
+    z-index: 3;
+    display: flex; flex-direction: column; align-items: center; gap: 12px;
+  }
+  .scroll-hint .dash {
+    width: 1px; height: 38px; background: var(--terra-300);
+    animation: float-slow 2.4s ease-in-out infinite;
+    transform-origin: top;
+  }
+
+  /* ============ SECTION BASE ============ */
+  section { padding: clamp(80px, 10vw, 140px) 0; position: relative; }
+  .section-head {
+    text-align: center;
+    margin-bottom: clamp(56px, 6vw, 90px);
+    max-width: 720px; margin-left: auto; margin-right: auto;
+  }
+  .section-head .micro { color: var(--terra-700); margin-bottom: 20px; display: inline-block; }
+  .section-head h2 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(38px, 5vw, 64px);
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+    color: var(--forest-950);
+    margin-bottom: 22px;
+  }
+  .section-head h2 em { color: var(--terra-700); font-style: italic; font-weight: 400; }
+  .section-head p {
+    color: var(--ink-700);
+    font-size: 17px;
+    line-height: 1.65;
+    font-weight: 400;
+  }
+
+  /* ============ SOBRE ============ */
+  .sobre { background: var(--cream-200); position: relative; overflow: hidden; }
+  .sobre::before {
+    content: ""; position: absolute;
+    top: -120px; right: -120px;
+    width: 480px; height: 480px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(122, 139, 111, 0.18) 0%, transparent 70%);
+    pointer-events: none;
+    animation: drift 20s ease-in-out infinite;
+  }
+  .sobre::after {
+    content: ""; position: absolute;
+    bottom: -100px; left: -100px;
+    width: 380px; height: 380px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(216, 133, 103, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+    animation: float-soft 16s ease-in-out infinite;
+  }
+  .sobre-grid {
+    display: grid; grid-template-columns: 1.05fr 1fr;
+    gap: 80px; align-items: center;
+    position: relative; z-index: 2;
+  }
+  .sobre-img-wrap {
+    position: relative;
+    aspect-ratio: 4/5;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 40px 90px rgba(31, 45, 26, 0.22);
+  }
+  .sobre-img-wrap img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center;
+    transition: transform 0.8s var(--ease-soft);
+  }
+  .sobre-img-wrap:hover img { transform: scale(1.04); }
+  .sobre-img-frame {
+    position: absolute;
+    inset: -18px;
+    border: 1px solid var(--terra-600);
+    border-radius: 14px;
+    z-index: -1;
+    transform: translate(18px, 18px);
+  }
+  .sobre-text .micro { color: var(--terra-700); margin-bottom: 16px; display: inline-block; }
+  .sobre-text h2 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(38px, 4.5vw, 58px);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    color: var(--forest-950);
+    margin-bottom: 28px;
+  }
+  .sobre-text h2 em { color: var(--terra-700); font-style: italic; font-weight: 400; }
+  .sobre-text p {
+    color: var(--ink-700);
+    font-size: 17px;
+    line-height: 1.75;
+    margin-bottom: 18px;
+  }
+  .sobre-creds {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+    margin-top: 38px;
+    padding-top: 32px;
+    border-top: 1px solid var(--cream-400);
+  }
+  .sobre-cred .num {
+    font-family: "Fraunces", serif;
+    font-size: 32px; font-weight: 500;
+    color: var(--terra-700);
+    letter-spacing: -0.02em;
+    line-height: 1; margin-bottom: 6px;
+  }
+  .sobre-cred .lbl {
+    font-size: 13px; color: var(--ink-500); letter-spacing: 0.02em;
+  }
+
+  /* ============ PARA QUEM ============ */
+  .para-quem {
+    background: var(--forest-950);
+    color: var(--cream-100);
+    position: relative; overflow: hidden;
+  }
+  .para-quem::before {
+    content: ""; position: absolute; top: 10%; right: 5%;
+    width: 540px; height: 540px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(216, 133, 103, 0.14) 0%, transparent 65%);
+    pointer-events: none;
+    animation: float-soft 17s ease-in-out infinite;
+  }
+  .para-quem .section-head h2 { color: var(--cream-100); }
+  .para-quem .section-head h2 em { color: var(--terra-500); }
+  .para-quem .section-head .micro { color: var(--terra-300); }
+  .para-quem .section-head p { color: rgba(251, 248, 242, 0.75); }
+  .pq-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+    position: relative; z-index: 2;
+  }
+  .pq-card {
+    background: rgba(251, 248, 242, 0.04);
+    border: 1px solid rgba(232, 184, 161, 0.18);
+    border-radius: 18px;
+    padding: 42px 32px;
+    transition: transform 0.4s var(--ease-soft), background 0.4s, border-color 0.4s, box-shadow 0.4s;
+    position: relative; overflow: hidden;
+  }
+  .pq-card:hover {
+    transform: translateY(-8px);
+    background: rgba(251, 248, 242, 0.07);
+    border-color: var(--terra-500);
+    box-shadow: 0 28px 60px rgba(0, 0, 0, 0.36);
+  }
+  .pq-card .ic {
+    width: 54px; height: 54px;
+    background: rgba(216, 133, 103, 0.16);
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 24px;
+    color: var(--terra-300);
+    transition: background 0.4s, transform 0.4s var(--ease-snap);
+  }
+  .pq-card:hover .ic {
+    background: var(--terra-600);
+    color: var(--cream-100);
+    transform: rotate(-6deg) scale(1.08);
+  }
+  .pq-card h3 {
+    font-family: "Fraunces", serif;
+    font-weight: 500;
+    font-size: 22px;
+    color: var(--cream-100);
+    margin-bottom: 14px;
+    letter-spacing: -0.015em;
+  }
+  .pq-card p {
+    color: rgba(251, 248, 242, 0.7);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  /* ============ COMO FUNCIONA (PROCESSO) ============ */
+  .processo {
+    background: var(--cream-100);
+    position: relative;
+  }
+  .processo::before {
+    content: ""; position: absolute;
+    top: 15%; left: 0;
+    width: 360px; height: 360px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(143, 160, 132, 0.18) 0%, transparent 65%);
+    transform: translateX(-40%);
+    pointer-events: none;
+  }
+  .proc-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 24px; position: relative; z-index: 2;
+  }
+  .proc-step {
+    position: relative;
+    padding: 38px 28px 32px;
+    background: var(--cream-200);
+    border-radius: 18px;
+    transition: transform 0.4s var(--ease-soft), box-shadow 0.4s, background 0.4s;
+  }
+  .proc-step:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 28px 56px rgba(31, 45, 26, 0.14);
+    background: var(--cream-100);
+  }
+  .proc-num {
+    position: absolute; top: -20px; left: 28px;
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--terra-600);
+    color: var(--cream-100);
+    display: flex; align-items: center; justify-content: center;
+    font-family: "Fraunces", serif;
+    font-size: 17px; font-weight: 600;
+    box-shadow: 0 10px 24px rgba(198, 107, 74, 0.32);
+    transition: transform 0.4s var(--ease-snap);
+  }
+  .proc-step:hover .proc-num { transform: rotate(-12deg) scale(1.08); }
+  .proc-step h3 {
+    font-family: "Fraunces", serif;
+    font-weight: 500;
+    font-size: 20px;
+    margin: 24px 0 12px;
+    color: var(--forest-950);
+    letter-spacing: -0.015em;
+  }
+  .proc-step p {
+    color: var(--ink-700);
+    font-size: 14.5px;
+    line-height: 1.65;
+  }
+
+  /* ============ PILARES (SEM GLÚTEN, SEM LACTOSE, SEM AÇÚCAR) ============ */
+  .pilares {
+    background: var(--terra-600);
+    color: var(--cream-100);
+    position: relative;
+    overflow: hidden;
+  }
+  .pilares::before {
+    content: ""; position: absolute; top: -30%; right: -10%;
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(251, 248, 242, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+    animation: float-slow 13s ease-in-out infinite;
+  }
+  .pilares::after {
+    content: ""; position: absolute; bottom: -30%; left: -10%;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(31, 45, 26, 0.18) 0%, transparent 70%);
+    pointer-events: none;
+    animation: drift 18s ease-in-out infinite;
+  }
+  .pilares-inner { position: relative; z-index: 2; }
+  .pilares .section-head .micro { color: rgba(251, 248, 242, 0.78); }
+  .pilares .section-head h2 { color: var(--cream-100); }
+  .pilares .section-head h2 em { color: var(--cream-200); font-style: italic; opacity: 0.92; }
+  .pilares .section-head p { color: rgba(251, 248, 242, 0.86); }
+
+  .pil-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .pil-item {
+    text-align: center;
+    padding: 50px 32px;
+    background: rgba(251, 248, 242, 0.08);
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(251, 248, 242, 0.16);
+    transition: transform 0.4s var(--ease-soft), background 0.4s, box-shadow 0.4s;
+  }
+  .pil-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    background: rgba(251, 248, 242, 0.14);
+    box-shadow: 0 30px 60px rgba(31, 45, 26, 0.28);
+  }
+  .pil-item .badge {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 76px; height: 76px; border-radius: 50%;
+    background: var(--cream-100);
+    color: var(--terra-700);
+    margin-bottom: 22px;
+    box-shadow: 0 14px 30px rgba(31, 45, 26, 0.22);
+    transition: transform 0.5s var(--ease-snap), background 0.4s, color 0.4s;
+  }
+  .pil-item .badge svg {
+    width: 34px; height: 34px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .pil-item:hover .badge {
+    transform: rotate(-8deg) scale(1.08);
+    background: var(--forest-950);
+    color: var(--cream-100);
+  }
+  .pil-item h3 {
+    font-family: "Fraunces", serif;
+    font-weight: 500;
+    font-size: 24px;
+    margin-bottom: 14px;
+    letter-spacing: -0.015em;
+  }
+  .pil-item p {
+    color: rgba(251, 248, 242, 0.85);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  /* ============ IMAGE TRAIL (academia) ============ */
+  .trail {
+    background: var(--forest-950);
+    color: var(--cream-100);
+    position: relative;
+    overflow: hidden;
+    cursor: none;
+    min-height: 90vh;
+    display: flex; align-items: center;
+  }
+  .trail-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 40%, rgba(122, 139, 111, 0.20) 0%, transparent 55%),
+      radial-gradient(ellipse at 70% 60%, rgba(198, 107, 74, 0.18) 0%, transparent 55%);
+    pointer-events: none;
+  }
+  .trail-inner {
+    position: relative; z-index: 2;
+    text-align: center;
+    max-width: 920px; margin: 0 auto;
+    padding: 0 40px;
+    pointer-events: none;
+  }
+  .trail .section-head .micro { color: var(--terra-300); }
+  .trail h2 {
+    font-family: "Fraunces", serif; font-weight: 400;
+    font-size: clamp(42px, 6vw, 78px);
+    line-height: 1.02; letter-spacing: -0.035em;
+    color: var(--cream-100);
+    margin-bottom: 26px;
+  }
+  .trail h2 em { color: var(--terra-500); font-style: italic; }
+  .trail .lead {
+    font-family: "Fraunces", serif; font-style: italic;
+    font-size: clamp(18px, 1.8vw, 22px);
+    color: rgba(251, 248, 242, 0.78);
+    max-width: 640px; margin: 0 auto;
+    line-height: 1.55;
+  }
+  .trail-hint {
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-top: 38px;
+    font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase;
+    color: rgba(232, 184, 161, 0.6);
+    font-weight: 500;
+  }
+  .trail-hint .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--terra-500);
+    box-shadow: 0 0 12px var(--terra-500);
+  }
+
+  /* custom cursor */
+  .trail-cursor {
+    position: absolute;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--terra-500);
+    pointer-events: none;
+    z-index: 6;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: screen;
+    transition: width 0.3s, height 0.3s, opacity 0.3s;
+    opacity: 0;
+    box-shadow: 0 0 24px rgba(216, 133, 103, 0.7);
+  }
+  .trail.active .trail-cursor { opacity: 1; }
+
+  /* imagens do trail */
+  .trail-img {
+    position: absolute;
+    width: 200px; height: 260px;
+    object-fit: cover;
+    border-radius: 12px;
+    pointer-events: none;
+    z-index: 4;
+    transform: translate(-50%, -50%) scale(0.6);
+    opacity: 0;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    will-change: transform, opacity;
+  }
+  .trail-img.is-active {
+    animation: trail-pop 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  @keyframes trail-pop {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5) rotate(var(--rot, 0deg)); }
+    18% { opacity: 1; transform: translate(-50%, -50%) scale(1.05) rotate(var(--rot, 0deg)); }
+    60% { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(var(--rot, 0deg)); }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(0.92) rotate(var(--rot, 0deg)) translateY(20px); }
+  }
+
+  @media (max-width: 980px) {
+    .trail { cursor: default; min-height: auto; padding: 90px 0 70px; }
+    .trail-img { display: none; }
+    .trail-cursor { display: none; }
+    .trail-inner { pointer-events: auto; }
+    .trail-hint { display: none; }
+
+    /* ===== Marquee horizontal infinito (mobile) ===== */
+    /* fotos rolam continuamente da direita pra esquerda em loop seamless */
+    .trail-marquee {
+      width: 100vw;
+      margin: 40px -22px 0;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(90deg, transparent 0, black 6%, black 94%, transparent 100%);
+              mask-image: linear-gradient(90deg, transparent 0, black 6%, black 94%, transparent 100%);
+      pointer-events: auto;
+    }
+    .trail-marquee-track {
+      display: flex;
+      gap: 14px;
+      width: max-content;
+      will-change: transform;
+      animation: marquee-loop 42s linear infinite;
+    }
+    .trail-marquee-track img {
+      flex-shrink: 0;
+      height: 320px;
+      width: auto;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.28);
+    }
+    @keyframes marquee-loop {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    /* respeita usuários que desativaram animações no sistema */
+    @media (prefers-reduced-motion: reduce) {
+      .trail-marquee-track { animation: none; }
+    }
+    /* pausa ao tocar */
+    .trail-marquee.is-paused .trail-marquee-track { animation-play-state: paused; }
+  }
+  @media (min-width: 981px) {
+    .trail-marquee { display: none; }
+  }
+
+  /* ============ RECEITAS / VITRINE ============ */
+  .receitas { background: var(--cream-200); position: relative; overflow: hidden; }
+  .receitas::before {
+    content: ""; position: absolute; top: 5%; right: -5%;
+    width: 420px; height: 420px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(184, 148, 100, 0.14) 0%, transparent 70%);
+    pointer-events: none;
+    animation: float-soft 19s ease-in-out infinite;
+  }
+  .rec-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px; position: relative; z-index: 2;
+    perspective: 1400px;
+    perspective-origin: center;
+  }
+  .rec-card {
+    background: var(--cream-100);
+    border-radius: 18px;
+    overflow: hidden;
+    transition: transform 0.55s var(--ease-soft), box-shadow 0.45s;
+    box-shadow: 0 14px 32px rgba(31, 45, 26, 0.08);
+    transform-style: preserve-3d;
+    will-change: transform;
+    position: relative;
+  }
+  /* filhos ficam num plano à frente, criando parallax durante o tilt */
+  .rec-card > * { transform: translateZ(20px); }
+  /* tilt JS controla transform via lerp, sem transition durante */
+  .rec-card.tilting { transition: none; }
+  /* mobile: rec-card entra animado + responde ao giroscópio (via JS inline transform) */
+  @media (hover: none), (pointer: coarse) {
+    .rec-card {
+      transform: perspective(900px) rotateX(14deg) translateY(28px);
+      opacity: 0;
+      transition: transform 0.9s var(--ease-soft), opacity 0.9s var(--ease-soft), box-shadow 0.4s;
+    }
+    .rec-card.entered {
+      transform: perspective(900px) rotateX(0deg) translateY(0);
+      opacity: 1;
+    }
+    /* quando o giroscópio tá ativo, JS controla o transform direto e desliga essa transition */
+    .rec-card.gyro-active {
+      transition: box-shadow 0.4s, opacity 0.4s;
+    }
+    .rec-card.tap-active {
+      transform: perspective(900px) rotateX(-3deg) translateY(-4px) scale(1.01);
+      box-shadow: 0 28px 56px rgba(31, 45, 26, 0.18);
+    }
+  }
+  /* botão contextual "Ativar 3D" dentro da seção Vitrine de Receitas */
+  .gyro-prompt-wrap {
+    display: none;
+    margin: 18px auto 0;
+    text-align: center;
+  }
+  @media (hover: none), (pointer: coarse) {
+    .gyro-prompt-wrap { display: block; }
+  }
+  .gyro-prompt {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 22px 11px 18px;
+    background: transparent;
+    color: var(--forest-900);
+    border: 1px solid var(--forest-900);
+    border-radius: 999px;
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    cursor: pointer;
+    transition: background 0.3s var(--ease-soft), color 0.3s, transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  }
+  .gyro-prompt:hover, .gyro-prompt:active {
+    background: var(--forest-950);
+    color: var(--cream-100);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(31, 45, 26, 0.24);
+  }
+  .gyro-prompt svg { width: 16px; height: 16px; }
+  .gyro-prompt.is-active {
+    background: var(--terra-600);
+    color: var(--cream-100);
+    border-color: var(--terra-600);
+    pointer-events: none;
+  }
+  .gyro-prompt.dismissed { display: none; }
+  .gyro-prompt-hint {
+    display: block;
+    margin-top: 10px;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--ink-500);
+    font-style: italic;
+  }
+  .rec-img {
+    aspect-ratio: 4/3;
+    background: var(--cream-300);
+    position: relative;
+    overflow: hidden;
+  }
+  .rec-img img.rec-img-photo {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s var(--ease-soft);
+  }
+  .rec-card:hover .rec-img-photo { transform: scale(1.06); }
+  /* sutil escurecimento no rodapé pra contraste com o nome da receita */
+  .rec-img::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(31, 45, 26, 0.42) 100%);
+    pointer-events: none;
+  }
+  .rec-img-label {
+    position: absolute; top: 16px; left: 16px;
+    background: rgba(251, 248, 242, 0.92);
+    color: var(--forest-900);
+    padding: 6px 14px; border-radius: 999px;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.05em; text-transform: uppercase;
+    z-index: 2;
+  }
+  .rec-img-name {
+    position: absolute; bottom: 18px; left: 18px;
+    color: var(--cream-100);
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 22px;
+    z-index: 3;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+    letter-spacing: -0.01em;
+  }
+  .rec-body { padding: 24px 26px 28px; }
+  .rec-tags { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+  .rec-tag {
+    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 999px;
+    background: var(--cream-200);
+    color: var(--forest-800);
+    font-weight: 600;
+  }
+  .rec-body h3 {
+    font-family: "Fraunces", serif;
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: var(--forest-950);
+    letter-spacing: -0.015em;
+  }
+  .rec-body p {
+    color: var(--ink-700);
+    font-size: 14.5px;
+    line-height: 1.6;
+  }
+
+  .receitas-cta-wrap {
+    text-align: center; margin-top: 56px;
+  }
+  .btn-outline-dark {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 32px;
+    border-radius: 999px;
+    border: 1px solid var(--forest-900);
+    color: var(--forest-950);
+    background: transparent;
+    font-size: 14px; font-weight: 600; letter-spacing: -0.01em;
+    transition: all 0.3s var(--ease-soft);
+    cursor: pointer;
+  }
+  .btn-outline-dark:hover {
+    background: var(--forest-950);
+    color: var(--cream-100);
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(31, 45, 26, 0.28);
+  }
+
+  /* ============ DEPOIMENTOS ============ */
+  .depoimentos { background: var(--cream-100); position: relative; }
+  .dep-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .dep-card {
+    background: var(--cream-200);
+    border-radius: 20px;
+    padding: 38px 32px;
+    position: relative;
+    transition: transform 0.4s var(--ease-soft), box-shadow 0.4s;
+  }
+  .dep-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 28px 56px rgba(31, 45, 26, 0.14);
+  }
+  .dep-card::before {
+    content: """;
+    position: absolute; top: 18px; right: 28px;
+    font-family: "Fraunces", serif;
+    font-size: 80px; line-height: 1;
+    color: var(--terra-500);
+    opacity: 0.4;
+  }
+  .dep-stars { display: flex; gap: 4px; margin-bottom: 18px; }
+  .dep-stars svg { width: 16px; height: 16px; fill: var(--gold-600); }
+  .dep-text {
+    font-family: "Fraunces", serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--forest-900);
+    margin-bottom: 28px;
+    position: relative; z-index: 2;
+  }
+  .dep-author { display: flex; align-items: center; gap: 14px; }
+  .dep-avatar {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--terra-500) 0%, var(--terra-700) 100%);
+    color: var(--cream-100);
+    display: flex; align-items: center; justify-content: center;
+    font-family: "Fraunces", serif;
+    font-size: 18px; font-weight: 500;
+    flex-shrink: 0;
+  }
+  .dep-meta .name { font-size: 14px; font-weight: 600; color: var(--forest-950); }
+  .dep-meta .desc { font-size: 12px; color: var(--ink-500); letter-spacing: 0.02em; }
+  .dep-disclaimer {
+    text-align: center; margin-top: 44px;
+    font-size: 12px; color: var(--ink-500); letter-spacing: 0.04em;
+    font-style: italic;
+  }
+
+  /* ============ FAQ ============ */
+  .faq { background: var(--cream-200); position: relative; overflow: hidden; }
+  .faq::before {
+    content: ""; position: absolute; bottom: -10%; right: -10%;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(122, 139, 111, 0.18) 0%, transparent 65%);
+    pointer-events: none;
+    animation: drift 20s ease-in-out infinite;
+  }
+  .faq-list {
+    max-width: 840px; margin: 0 auto;
+    position: relative; z-index: 2;
+  }
+  .faq-item {
+    background: var(--cream-100);
+    border-radius: 16px;
+    margin-bottom: 14px;
+    overflow: hidden;
+    transition: box-shadow 0.4s var(--ease-soft);
+  }
+  .faq-item.open {
+    box-shadow: 0 24px 48px rgba(31, 45, 26, 0.12);
+  }
+  .faq-q {
+    width: 100%;
+    padding: 24px 30px;
+    background: transparent;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: space-between; gap: 20px;
+    font-family: "Inter", sans-serif;
+    font-size: 16px; font-weight: 600;
+    color: var(--forest-950);
+    transition: color 0.3s;
+  }
+  .faq-q:hover { color: var(--terra-700); }
+  .faq-q .icon {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--cream-200);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.4s var(--ease-snap), background 0.3s;
+    color: var(--terra-700);
+    font-size: 18px;
+  }
+  .faq-item.open .faq-q .icon {
+    background: var(--terra-600);
+    color: var(--cream-100);
+    transform: rotate(45deg);
+  }
+  .faq-a {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.5s var(--ease-soft), padding 0.4s;
+    color: var(--ink-700);
+    font-size: 15px;
+    line-height: 1.7;
+    padding: 0 30px;
+  }
+  .faq-item.open .faq-a {
+    max-height: 400px;
+    padding: 0 30px 26px;
+  }
+
+  /* ============ CTA FINAL ============ */
+  .cta-final {
+    background:
+      radial-gradient(ellipse at 30% 30%, rgba(122, 139, 111, 0.32) 0%, transparent 55%),
+      radial-gradient(ellipse at 70% 70%, rgba(198, 107, 74, 0.28) 0%, transparent 60%),
+      linear-gradient(135deg, var(--forest-950) 0%, var(--forest-900) 100%);
+    color: var(--cream-100);
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .cta-final::before {
+    content: ""; position: absolute; top: -20%; left: 50%; transform: translateX(-50%);
+    width: 700px; height: 700px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(216, 133, 103, 0.20) 0%, transparent 60%);
+    animation: float-slow 12s ease-in-out infinite;
+    pointer-events: none;
+  }
+  .cta-final-inner {
+    max-width: 760px; margin: 0 auto;
+    position: relative; z-index: 2;
+  }
+  .cta-final .micro { color: var(--terra-300); margin-bottom: 24px; display: inline-block; }
+  .cta-final h2 {
+    font-family: "Fraunces", serif;
+    font-weight: 400;
+    font-size: clamp(38px, 5vw, 64px);
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+  }
+  .cta-final h2 em { color: var(--terra-500); font-style: italic; }
+  .cta-final p {
+    color: rgba(251, 248, 242, 0.82);
+    font-size: 18px;
+    line-height: 1.65;
+    margin-bottom: 44px;
+    font-weight: 300;
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    background: var(--forest-950);
+    color: rgba(251, 248, 242, 0.6);
+    padding: 64px 0 32px;
+  }
+  .foot-grid {
+    display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(232, 184, 161, 0.14);
+  }
+  .foot-brand .mark {
+    font-family: "Fraunces", serif;
+    font-weight: 500;
+    font-style: italic;
+    font-size: 26px;
+    color: var(--cream-100);
+    letter-spacing: 0.02em;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .foot-brand .tag {
+    font-size: 9px; letter-spacing: 0.42em; text-transform: uppercase;
+    color: var(--terra-300);
+    margin-bottom: 22px;
+  }
+  .foot-brand p {
+    font-size: 14px; line-height: 1.6;
+    color: rgba(251, 248, 242, 0.55);
+    max-width: 320px;
+  }
+  .foot-col h4 {
+    font-family: "Inter", sans-serif;
+    font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--terra-300);
+    font-weight: 600;
+    margin-bottom: 22px;
+  }
+  .foot-col a, .foot-col span {
+    display: block;
+    color: rgba(251, 248, 242, 0.7);
+    font-size: 14px;
+    margin-bottom: 12px;
+    transition: color 0.25s;
+  }
+  .foot-col a:hover { color: var(--terra-300); }
+  .foot-social { display: flex; gap: 12px; margin-top: 6px; }
+  .foot-social a {
+    width: 38px; height: 38px; border-radius: 50%;
+    background: rgba(251, 248, 242, 0.08);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0; padding: 0;
+    transition: background 0.3s, transform 0.3s var(--ease-snap);
+    color: var(--cream-100);
+  }
+  .foot-social a:hover {
+    background: var(--terra-600);
+    transform: translateY(-3px) rotate(-6deg);
+    color: var(--cream-100);
+  }
+  .foot-social svg { width: 16px; height: 16px; }
+  .foot-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
+    padding-top: 32px;
+    font-size: 12px;
+    color: rgba(251, 248, 242, 0.45);
+  }
+  .foot-bottom .crn { color: var(--terra-300); font-weight: 500; letter-spacing: 0.04em; }
+  .foot-credit {
+    display: inline-flex; align-items: baseline; gap: 6px;
+    color: rgba(251, 248, 242, 0.45);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
+  .foot-credit .brand-criativvo {
+    font-family: 'AVEstiana', "Inter", sans-serif;
+    font-weight: 900;
+    font-size: 14px;
+    letter-spacing: -0.03em;
+    color: var(--terra-300);
+    transition: color 0.25s;
+  }
+  .foot-credit .brand-criativvo:hover { color: var(--cream-100); }
+
+  /* ============ MARCA D'ÁGUA CRIATIVVO (flutuante esquerda) ============ */
+  /* alinhada pelo CENTRO Y com o WhatsApp float — fina, padding natural */
+  /* WhatsApp desktop: bottom 26 + height 52 → centro Y = 52. Marca ~32px → bottom = 52 - 16 = 36 */
+  .made-by {
+    position: fixed;
+    bottom: 36px; left: 26px;
+    z-index: 97;
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 9px 14px 9px 12px;
+    background: rgba(31, 45, 26, 0.78);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(232, 184, 161, 0.18);
+    border-radius: 999px;
+    color: var(--cream-100);
+    text-decoration: none;
+    line-height: 1;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+    transition: transform 0.3s var(--ease-soft), background 0.3s, border-color 0.3s, box-shadow 0.3s, opacity 0.4s;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  .made-by.is-ready { opacity: 1; transform: translateY(0); }
+  .made-by:hover {
+    background: rgba(31, 45, 26, 0.95);
+    border-color: var(--terra-500);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.32);
+  }
+  .made-by .label {
+    font-family: "Inter", sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    opacity: 0.65;
+    font-weight: 500;
+  }
+  .made-by .brand {
+    font-family: 'AVEstiana', "Inter", sans-serif;
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    color: var(--terra-300);
+    transition: color 0.3s;
+  }
+  .made-by:hover .brand { color: var(--cream-100); }
+  /* mobile: WhatsApp 58px, centro Y = 51. Marca ~30px → bottom = 51 - 15 = 36 */
+  @media (max-width: 980px) {
+    .made-by {
+      bottom: 36px; left: 22px;
+      padding: 8px 12px 8px 10px;
+    }
+    .made-by .label { font-size: 8px; letter-spacing: 0.14em; }
+    .made-by .brand { font-size: 13px; }
+  }
+  /* esconde a marca quando o menu mobile tá aberto */
+  body.menu-open .made-by { opacity: 0; pointer-events: none; }
+
+  /* ============ WHATSAPP FLOAT ============ */
+  @keyframes glow-soft {
+    0%, 100% { box-shadow: 0 8px 22px rgba(37, 211, 102, 0.34); }
+    50% { box-shadow: 0 10px 28px rgba(37, 211, 102, 0.5); }
+  }
+  .wa-float {
+    position: fixed;
+    bottom: 26px; right: 26px;
+    width: 52px; height: 52px; border-radius: 50%;
+    background: #25D366;
+    color: white;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 99;
+    transition: transform 0.3s var(--ease-snap), box-shadow 0.3s, background 0.3s;
+    animation: glow-soft 3.2s ease-in-out infinite;
+  }
+  .wa-float:hover {
+    transform: scale(1.08) translateY(-2px);
+    background: #1ebd5b;
+    animation: none;
+    box-shadow: 0 16px 36px rgba(37, 211, 102, 0.55);
+  }
+  .wa-float svg { width: 24px; height: 24px; }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 980px) {
+    .container { padding: 0 28px; }
+    .nav-menu { display: none; }
+    .nav-burger {
+      display: flex; flex-direction: column; gap: 5px;
+      background: transparent; border: none; cursor: pointer; padding: 8px;
+    }
+    .nav-burger span {
+      width: 26px; height: 2px; background: var(--cream-100); display: block;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .nav-cta { display: inline-flex; padding: 11px 18px; font-size: 12px; }
+    .hero { padding: 140px 28px 90px; }
+    .hero-vline { display: none; }
+    .hero-badges { gap: 24px; margin-top: 48px; }
+    .hero-badge .num { font-size: 30px; }
+    .sobre-grid { grid-template-columns: 1fr; gap: 56px; }
+    .sobre-img-frame { display: none; }
+    .pq-grid { grid-template-columns: 1fr; }
+    .proc-grid { grid-template-columns: repeat(2, 1fr); }
+    .pil-grid { grid-template-columns: 1fr; }
+    .rec-grid { grid-template-columns: 1fr; }
+    .dep-grid { grid-template-columns: 1fr; }
+    .foot-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  }
+  @media (max-width: 560px) {
+    .container { padding: 0 22px; }
+    .proc-grid { grid-template-columns: 1fr; }
+    .foot-grid { grid-template-columns: 1fr; }
+    .foot-bottom { flex-direction: column; text-align: center; }
+    .hero { padding: 130px 22px 80px; }
+    .hero-title { font-size: 42px; line-height: 1.02; }
+    .hero-sub { font-size: 15px; line-height: 1.5; margin-bottom: 36px; }
+    .hero-badges { gap: 18px; margin-top: 36px; }
+    .hero-badge .num { font-size: 24px; }
+    .hero-badge .lbl { font-size: 11px; }
+    .hero-ctas { gap: 12px; }
+    .hero-ctas .btn { padding: 13px 20px; font-size: 13px; }
+    .section-head h2 { font-size: 32px; }
+    .pil-item, .pq-card, .dep-card, .proc-step { padding: 32px 22px; }
+    .wa-float { width: 58px; height: 58px; bottom: 22px; right: 22px; }
+    .wa-float svg { width: 26px; height: 26px; }
+  }
+  /* trava o scroll do body quando o mobile menu tá aberto */
+  body.menu-open { overflow: hidden; }
+  /* reveal mais sutil no mobile (distância menor) */
+  @media (max-width: 980px) {
+    .reveal, .reveal-left, .reveal-right { transform: translateY(20px); }
+    .reveal-left, .reveal-right { transform: translateY(20px) !important; }
+    .reveal-stagger > * { transform: translateY(14px); }
+  }
+  /* mobile: cards acendem em sequência conforme rola — o que está centralizado fica em foco */
+  @media (hover: none), (pointer: coarse) {
+    /* Pilares (Sem glúten/lactose/açúcar) */
+    .pil-item {
+      transform: scale(0.96);
+      opacity: 0.45;
+      transition: transform 0.55s var(--ease-soft), opacity 0.55s, background 0.45s, box-shadow 0.45s;
+    }
+    .pil-item.is-focused {
+      transform: scale(1.04);
+      opacity: 1;
+      background: rgba(251, 248, 242, 0.18);
+      box-shadow: 0 28px 60px rgba(31, 45, 26, 0.28);
+    }
+    .pil-item .badge { transition: transform 0.55s var(--ease-snap), background 0.45s, color 0.45s, box-shadow 0.45s; }
+    .pil-item.is-focused .badge {
+      background: var(--forest-950);
+      color: var(--cream-100);
+      transform: rotate(-8deg) scale(1.12);
+      box-shadow: 0 18px 38px rgba(31, 45, 26, 0.40), 0 0 36px rgba(216, 133, 103, 0.40);
+    }
+
+    /* Para quem é (pq-card) — mesmo comportamento sequencial */
+    .pq-card {
+      opacity: 0.45;
+      transition: transform 0.55s var(--ease-soft), opacity 0.55s, background 0.45s, border-color 0.45s, box-shadow 0.45s;
+    }
+    .pq-card.is-focused {
+      opacity: 1;
+      transform: scale(1.03);
+      background: rgba(251, 248, 242, 0.08);
+      border-color: var(--terra-500);
+      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.34);
+    }
+    .pq-card .ic { transition: background 0.45s, color 0.45s, transform 0.45s var(--ease-snap); }
+    .pq-card.is-focused .ic {
+      background: var(--terra-600);
+      color: var(--cream-100);
+      transform: rotate(-6deg) scale(1.08);
+    }
+
+    /* Como funciona (proc-step) — mesmo comportamento sequencial */
+    .proc-step {
+      opacity: 0.5;
+      transition: transform 0.55s var(--ease-soft), opacity 0.55s, background 0.45s, box-shadow 0.45s;
+    }
+    .proc-step.is-focused {
+      opacity: 1;
+      transform: scale(1.03) translateY(-4px);
+      background: var(--cream-100);
+      box-shadow: 0 28px 56px rgba(31, 45, 26, 0.16);
+    }
+    .proc-step .proc-num { transition: transform 0.45s var(--ease-snap), box-shadow 0.4s; }
+    .proc-step.is-focused .proc-num {
+      transform: rotate(-12deg) scale(1.12);
+      box-shadow: 0 14px 28px rgba(198, 107, 74, 0.42);
+    }
+
+    /* Depoimentos (dep-card) — mesmo comportamento sequencial */
+    .dep-card {
+      opacity: 0.55;
+      transition: transform 0.55s var(--ease-soft), opacity 0.55s, box-shadow 0.45s;
+    }
+    .dep-card.is-focused {
+      opacity: 1;
+      transform: scale(1.025) translateY(-4px);
+      box-shadow: 0 28px 56px rgba(31, 45, 26, 0.18);
+    }
+  }
+  /* mobile: feedback no FAQ */
+  @media (hover: none), (pointer: coarse) {
+    .faq-q:active { background: var(--cream-200); }
+  }
+
+  /* ============ MOBILE MENU OVERLAY ============ */
+  .mobile-menu {
+    position: fixed; inset: 0;
+    background: var(--forest-950);
+    z-index: 200;
+    transform: translateY(-100%);
+    transition: transform 0.5s var(--ease-soft);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 30px;
+  }
+  .mobile-menu.open { transform: translateY(0); }
+  .mobile-menu a {
+    color: var(--cream-100);
+    font-family: "Fraunces", serif;
+    font-size: 28px;
+    letter-spacing: -0.01em;
+  }
+  .mobile-menu a:hover { color: var(--terra-300); }
+  .mobile-close {
+    position: absolute; top: 28px; right: 28px;
+    background: transparent; border: none; color: var(--cream-100);
+    font-size: 32px; cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#hero" class="nav-logo">
+      <span class="mark">mariana medeiros</span>
+      <span class="tag">Nutri esportiva · NutriChef</span>
+    </a>
+    <div class="nav-menu">
+      <a href="#sobre">Sobre</a>
+      <a href="#para-quem">Para quem é</a>
+      <a href="#processo">Como funciona</a>
+      <a href="#receitas">Receitas</a>
+      <a href="#faq">Dúvidas</a>
+      <a href="#" class="nav-cta js-whats" id="navWhats">
+        <svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Agendar consulta
+      </a>
+    </div>
+    <button class="nav-burger" id="navBurger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="Fechar">×</button>
+  <a href="#sobre">Sobre</a>
+  <a href="#para-quem">Para quem é</a>
+  <a href="#processo">Como funciona</a>
+  <a href="#receitas">Receitas</a>
+  <a href="#faq">Dúvidas</a>
+  <a href="#" class="js-whats" id="mobMenuWhats">Agendar consulta</a>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-arc-1"></div>
+  <div class="hero-arc-2"></div>
+  <div class="hero-vline"></div>
+
+  <div class="hero-inner">
+    <div class="hero-eyebrow reveal">
+      <span class="line-two"><span class="a"></span><span class="b"></span></span>
+      <span class="micro">Nutricionista esportiva · NutriChef</span>
+    </div>
+
+    <h1 class="hero-title reveal">
+      Construa o corpo<br>
+      dos seus <span class="accent">sonhos</span><br>
+      <span class="soft">comendo de verdade.</span>
+    </h1>
+
+    <p class="hero-sub reveal">
+      Acompanhamento nutricional pra mulheres que querem <strong>resultado real e sustentável</strong>. Receitas funcionais sem glúten, sem lactose e sem açúcar, que cabem na sua rotina e na sua vida.
+    </p>
+
+    <div class="hero-ctas reveal">
+      <a href="#" class="btn btn-primary js-whats" id="heroWhats">
+        <svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Agendar consulta
+      </a>
+      <a href="#receitas" class="btn btn-ghost">
+        Ver receitas
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <div class="hero-badges reveal-stagger">
+      <div class="hero-badge">
+        <span class="num">100%</span>
+        <span class="lbl">Sem glúten · lactose · açúcar</span>
+      </div>
+      <div class="hero-badge">
+        <span class="num">Online</span>
+        <span class="lbl">Atendimento em todo o Brasil</span>
+      </div>
+      <div class="hero-badge">
+        <span class="num">+ mulheres</span>
+        <span class="lbl">Construindo o corpo dos sonhos</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Role pra começar</span>
+    <span class="dash"></span>
+  </div>
+</section>
+
+<!-- ============ SOBRE ============ -->
+<section class="sobre" id="sobre">
+  <div class="container">
+    <div class="sobre-grid">
+      <div class="sobre-img-wrap reveal-left">
+        <img src="assets/cozinha.jpg" alt="Mariana Medeiros na cozinha, segurando uma marmita funcional" loading="lazy">
+        <div class="sobre-img-frame"></div>
+      </div>
+
+      <div class="sobre-text reveal-right">
+        <span class="micro">Quem sou</span>
+        <h2>Nutri <em>esportiva</em>, chef e mulher que entende a sua rotina.</h2>
+        <p>
+          Eu sou Mariana Medeiros. Como nutricionista esportiva, ajudo mulheres a entender que <strong>comida boa não é a inimiga</strong>, ela é a ferramenta que constrói o corpo, o desempenho e a relação que você quer ter com a comida.
+        </p>
+        <p>
+          Como NutriChef, eu uno a parte clínica e técnica da nutrição com a cozinha de verdade. Receitas funcionais, sem glúten, sem lactose, sem açúcar, que sustentam treino, dão prazer e cabem no seu dia.
+        </p>
+
+        <div class="sobre-creds reveal-stagger">
+          <div class="sobre-cred">
+            <div class="num">Nutri</div>
+            <div class="lbl">Esportiva clínica</div>
+          </div>
+          <div class="sobre-cred">
+            <div class="num">Chef</div>
+            <div class="lbl">Cozinha funcional</div>
+          </div>
+          <div class="sobre-cred">
+            <div class="num">100%</div>
+            <div class="lbl">Plano individualizado</div>
+          </div>
+          <div class="sobre-cred">
+            <div class="num">Online</div>
+            <div class="lbl">Em qualquer lugar do Brasil</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PARA QUEM ============ -->
+<section class="para-quem" id="para-quem">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="micro">Para quem é</span>
+      <h2>Pra você que já tentou <em>de tudo</em> e ainda não viu o corpo do jeito que queria.</h2>
+      <p>Se você se identifica com pelo menos um desses cenários, este acompanhamento foi pensado pra você.</p>
+    </div>
+
+    <div class="pq-grid reveal-stagger">
+      <div class="pq-card">
+        <div class="ic">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3>Quer mudar o corpo sem brigar com a comida</h3>
+        <p>Cansou de dieta restritiva, da culpa por comer e do ciclo "começo segunda". Quer um caminho que funcione e que você consiga sustentar.</p>
+      </div>
+      <div class="pq-card">
+        <div class="ic">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        </div>
+        <h3>Treina sério e quer ver resultado na balança e no espelho</h3>
+        <p>Já entendeu que treino sem nutrição estagna. Quer um plano que entregue performance, ganho de massa e composição corporal.</p>
+      </div>
+      <div class="pq-card">
+        <div class="ic">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v6m0 8v6M4.93 4.93l4.24 4.24m5.66 5.66l4.24 4.24M2 12h6m8 0h6M4.93 19.07l4.24-4.24m5.66-5.66l4.24-4.24"/></svg>
+        </div>
+        <h3>Tem restrição alimentar e não sabe como comer bem</h3>
+        <p>Glúten, lactose, açúcar, intestino sensível. Quer receita gostosa, prática e segura, sem viver de salada e ovo cozido.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESSO ============ -->
+<section class="processo" id="processo">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="micro">Como funciona</span>
+      <h2>Da primeira conversa à sua <em>nova rotina</em>.</h2>
+      <p>Um processo simples, técnico e humano, pensado pra você sair com um plano que cabe na vida real.</p>
+    </div>
+
+    <div class="proc-grid reveal-stagger">
+      <div class="proc-step">
+        <div class="proc-num">1</div>
+        <h3>Conversa inicial</h3>
+        <p>Você me conta sua história, sua rotina, seu treino e seus objetivos. Sem julgamento.</p>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">2</div>
+        <h3>Avaliação completa</h3>
+        <p>Análise técnica do que você come, do seu gasto energético e dos exames que tiver em mãos.</p>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">3</div>
+        <h3>Plano + receitas</h3>
+        <p>Um plano feito pra você, com receitas funcionais que cabem no seu tempo, sua cozinha e sua restrição.</p>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">4</div>
+        <h3>Acompanhamento</h3>
+        <p>Ajustes, suporte e ajuste fino. Não é "tomá aí o PDF", é caminho com mão dada.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PILARES (3 SEM) ============ -->
+<section class="pilares" id="pilares">
+  <div class="container pilares-inner">
+    <div class="section-head reveal">
+      <span class="micro">A assinatura da casa</span>
+      <h2>Receitas <em>sem glúten</em>, sem lactose e sem açúcar.</h2>
+      <p>Funcional pra quem tem restrição, sofisticado pra quem só quer comer melhor.</p>
+    </div>
+
+    <div class="pil-grid reveal-stagger">
+      <div class="pil-item">
+        <div class="badge" aria-label="Sem glúten">
+          <!-- Espiga de trigo: haste central + grãos ovais angulados em 3 níveis + ponta -->
+          <svg viewBox="0 0 32 32">
+            <line x1="16" y1="28" x2="16" y2="8"/>
+            <ellipse cx="13" cy="22" rx="1.8" ry="3.2" transform="rotate(-28 13 22)"/>
+            <ellipse cx="19" cy="22" rx="1.8" ry="3.2" transform="rotate(28 19 22)"/>
+            <ellipse cx="12.5" cy="17" rx="1.8" ry="3.2" transform="rotate(-28 12.5 17)"/>
+            <ellipse cx="19.5" cy="17" rx="1.8" ry="3.2" transform="rotate(28 19.5 17)"/>
+            <ellipse cx="12.5" cy="12" rx="1.8" ry="3.2" transform="rotate(-28 12.5 12)"/>
+            <ellipse cx="19.5" cy="12" rx="1.8" ry="3.2" transform="rotate(28 19.5 12)"/>
+            <ellipse cx="16" cy="7.5" rx="1.6" ry="2.8"/>
+            <line x1="6" y1="26" x2="26" y2="6" stroke-width="1.8"/>
+          </svg>
+        </div>
+        <h3>Sem glúten</h3>
+        <p>Pra quem tem doença celíaca, sensibilidade ou só quer reduzir inflamação. Sabor e textura preservados.</p>
+      </div>
+      <div class="pil-item">
+        <div class="badge" aria-label="Sem lactose">
+          <!-- Garrafa de leite com linha riscando -->
+          <svg viewBox="0 0 32 32">
+            <path d="M13 5h6"/>
+            <path d="M13 5v3l-2 3v15a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V11l-2-3V5"/>
+            <path d="M11 17h10"/>
+            <line x1="6" y1="26" x2="26" y2="6" stroke-width="1.8"/>
+          </svg>
+        </div>
+        <h3>Sem lactose</h3>
+        <p>Intolerância não é mais limitação. Receitas cremosas, doces e salgadas que respeitam seu intestino.</p>
+      </div>
+      <div class="pil-item">
+        <div class="badge" aria-label="Sem açúcar refinado">
+          <!-- Cubo de açúcar 3D isométrico: topo (losango) + face esquerda + face direita -->
+          <svg viewBox="0 0 32 32">
+            <path d="M16 5 L25 10 L16 15 L7 10 Z"/>
+            <path d="M7 10 L7 21 L16 26 L16 15 Z"/>
+            <path d="M25 10 L25 21 L16 26 L16 15 Z"/>
+            <line x1="6" y1="26" x2="26" y2="6" stroke-width="1.8"/>
+          </svg>
+        </div>
+        <h3>Sem açúcar refinado</h3>
+        <p>Doce continua sendo doce. Trocamos açúcar por adoçantes naturais inteligentes, sem perder prazer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IMAGE TRAIL (academia) ============ -->
+<section class="trail" id="trail">
+  <div class="trail-bg"></div>
+  <div class="trail-cursor" id="trailCursor"></div>
+
+  <div class="trail-inner">
+    <span class="micro reveal" style="color: var(--terra-300); display: inline-block; margin-bottom: 20px;">Por trás do plano</span>
+    <h2 class="reveal">Treina. Cozinha. <em>Vive</em>.</h2>
+    <p class="lead reveal">Eu pratico o que eu prescrevo. Toda receita que chega na sua cozinha nasce na minha rotina real, dentro da academia, dentro da minha casa.</p>
+    <div class="trail-hint reveal"><span class="dot"></span>Passe o mouse pra ver</div>
+
+    <!-- Marquee horizontal infinito (mobile) — fotos duplicadas pro loop ser seamless -->
+    <div class="trail-marquee" id="trailMarquee">
+      <div class="trail-marquee-track">
+        <img src="assets/academia/trail-09.jpg" alt="Mariana na academia" loading="lazy">
+        <img src="assets/academia/trail-05.jpg" alt="Mariana na academia" loading="lazy">
+        <img src="assets/academia/trail-01.jpg" alt="Mariana na academia" loading="lazy">
+        <img src="assets/academia/trail-06.jpg" alt="Mariana na academia" loading="lazy">
+        <img src="assets/academia/trail-03.jpg" alt="Mariana na academia" loading="lazy">
+        <img src="assets/academia/trail-02.jpg" alt="Mariana na academia" loading="lazy">
+        <img src="assets/academia/trail-10.jpg" alt="Mariana na academia" loading="lazy">
+        <img src="assets/academia/trail-08.jpg" alt="Mariana na academia" loading="lazy">
+        <img src="assets/academia/trail-07.jpg" alt="Mariana na academia" loading="lazy">
+        <img src="assets/academia/trail-04.jpg" alt="Mariana na academia" loading="lazy">
+        <!-- duplicação exata pra loop infinito sem corte -->
+        <img src="assets/academia/trail-09.jpg" alt="" aria-hidden="true" loading="lazy">
+        <img src="assets/academia/trail-05.jpg" alt="" aria-hidden="true" loading="lazy">
+        <img src="assets/academia/trail-01.jpg" alt="" aria-hidden="true" loading="lazy">
+        <img src="assets/academia/trail-06.jpg" alt="" aria-hidden="true" loading="lazy">
+        <img src="assets/academia/trail-03.jpg" alt="" aria-hidden="true" loading="lazy">
+        <img src="assets/academia/trail-02.jpg" alt="" aria-hidden="true" loading="lazy">
+        <img src="assets/academia/trail-10.jpg" alt="" aria-hidden="true" loading="lazy">
+        <img src="assets/academia/trail-08.jpg" alt="" aria-hidden="true" loading="lazy">
+        <img src="assets/academia/trail-07.jpg" alt="" aria-hidden="true" loading="lazy">
+        <img src="assets/academia/trail-04.jpg" alt="" aria-hidden="true" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RECEITAS / VITRINE ============ -->
+<section class="receitas" id="receitas">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="micro">Vitrine de receitas</span>
+      <h2>O que <em>chega</em> na sua cozinha.</h2>
+      <p>Uma prévia das receitas que você passa a ter acesso. Funcional, gostoso e fácil de fazer.</p>
+
+      <!-- Botão Ativar 3D (mobile only) — fica em contexto, perto dos cards de receita -->
+      <div class="gyro-prompt-wrap">
+        <button class="gyro-prompt" id="gyroPrompt" aria-label="Ativar efeito 3D nos cards">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+          <span class="gyro-prompt-text">Ativar efeito 3D nos cards</span>
+        </button>
+        <span class="gyro-prompt-hint">tombe o celular pra ver</span>
+      </div>
+    </div>
+
+    <div class="rec-grid reveal-stagger">
+      <div class="rec-card">
+        <div class="rec-img">
+          <img class="rec-img-photo" src="assets/receitas/brownie.jpg" alt="Brownie de chocolate" loading="lazy">
+          <span class="rec-img-label">Doce</span>
+          <span class="rec-img-name">brownie funcional</span>
+        </div>
+        <div class="rec-body">
+          <div class="rec-tags">
+            <span class="rec-tag">Sem glúten</span>
+            <span class="rec-tag">Sem lactose</span>
+          </div>
+          <h3>Brownie de chocolate 70%</h3>
+          <p>Massa úmida, casquinha craquelada, zero açúcar refinado. Pré-treino também.</p>
+        </div>
+      </div>
+      <div class="rec-card">
+        <div class="rec-img">
+          <img class="rec-img-photo" src="assets/receitas/bowl.jpg" alt="Bowl proteico colorido com tofu, milho, tomate e folhas" loading="lazy">
+          <span class="rec-img-label">Salgado</span>
+          <span class="rec-img-name">bowl de proteína</span>
+        </div>
+        <div class="rec-body">
+          <div class="rec-tags">
+            <span class="rec-tag">Pós-treino</span>
+            <span class="rec-tag">Hipertrofia</span>
+          </div>
+          <h3>Bowl proteico colorido</h3>
+          <p>30g de proteína, fibra de verdade e gordura boa. Pronto em 15 minutos.</p>
+        </div>
+      </div>
+      <div class="rec-card">
+        <div class="rec-img">
+          <img class="rec-img-photo" src="assets/receitas/pao-de-queijo.jpg" alt="Pão de queijo dourado servido com café" loading="lazy">
+          <span class="rec-img-label">Café</span>
+          <span class="rec-img-name">pão de queijo da casa</span>
+        </div>
+        <div class="rec-body">
+          <div class="rec-tags">
+            <span class="rec-tag">Sem glúten</span>
+            <span class="rec-tag">Sem lactose</span>
+          </div>
+          <h3>Pão de queijo sem lactose</h3>
+          <p>O clássico mineiro adaptado. Crocante por fora, macio por dentro.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="receitas-cta-wrap reveal">
+      <a href="#contato" class="btn-outline-dark">
+        Quero receber as receitas
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEPOIMENTOS ============ -->
+<section class="depoimentos" id="depoimentos">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="micro">Quem já passou por aqui</span>
+      <h2>Histórias de quem <em>mudou a relação</em> com a comida.</h2>
+      <p>Mulheres que entenderam que o caminho é sustentável, técnico e gostoso.</p>
+    </div>
+
+    <div class="dep-grid reveal-stagger">
+      <div class="dep-card">
+        <div class="dep-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.748l-6 5.85 1.416 8.265L12 19.771l-7.416 4.092L6 15.598 0 9.748l8.332-1.593z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.748l-6 5.85 1.416 8.265L12 19.771l-7.416 4.092L6 15.598 0 9.748l8.332-1.593z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.748l-6 5.85 1.416 8.265L12 19.771l-7.416 4.092L6 15.598 0 9.748l8.332-1.593z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.748l-6 5.85 1.416 8.265L12 19.771l-7.416 4.092L6 15.598 0 9.748l8.332-1.593z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.748l-6 5.85 1.416 8.265L12 19.771l-7.416 4.092L6 15.598 0 9.748l8.332-1.593z"/></svg>
+        </div>
+        <p class="dep-text">A primeira vez que segui um plano e não desisti na segunda semana. Receita boa de verdade muda tudo.</p>
+        <div class="dep-author">
+          <div class="dep-avatar">A</div>
+          <div class="dep-meta">
+            <div class="name">Ana C.</div>
+            <div class="desc">Treina há 2 anos</div>
+          </div>
+        </div>
+      </div>
+      <div class="dep-card">
+        <div class="dep-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.748l-6 5.85 1.416 8.265L12 19.771l-7.416 4.092L6 15.598 0 9.748l8.332-1.593z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.748l-6 5.85 1.416 8.265L12 19.771l-7.416 4.092L6 15.598 0 9.748l8.332-1.593z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.748l-6 5.85 1.416 8.265L12 19.771l-7.416 4.092L6 15.598 0 9.748l8.332-1.593z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.748l-6 5.85 1.416 8.265L12 19.771l-7.416 4.092L6 15.598 0 9.748l8.332-1.593z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.748l-6 5.85 1.416 8.265L12 19.771l-7.416 4.092L6 15.598 0 9.748l8.332-1.593z"/></svg>
+        </div>
+        <p class="dep-text">Sou intolerante à lactose e finalmente alguém me deu opção que não é triste. Brownie sem culpa existe.</p>
+        <div class="dep-author">
+          <div class="dep-avatar">M</div>
+          <div class="dep-meta">
+            <div class="name">Marina S.</div>
+            <div class="desc">Crossfit 5x/semana</div>
+          </div>
+        </div>
+      </div>
+      <div class="dep-card">
+        <div class="dep-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.748l-6 5.85 1.416 8.265L12 19.771l-7.416 4.092L6 15.598 0 9.748l8.332-1.593z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.748l-6 5.85 1.416 8.265L12 19.771l-7.416 4.092L6 15.598 0 9.748l8.332-1.593z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.748l-6 5.85 1.416 8.265L12 19.771l-7.416 4.092L6 15.598 0 9.748l8.332-1.593z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.748l-6 5.85 1.416 8.265L12 19.771l-7.416 4.092L6 15.598 0 9.748l8.332-1.593z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.748l-6 5.85 1.416 8.265L12 19.771l-7.416 4.092L6 15.598 0 9.748l8.332-1.593z"/></svg>
+        </div>
+        <p class="dep-text">Acompanhamento técnico de verdade. Ela explica, ajusta, escuta. Mudei composição corporal sem me sentir punida.</p>
+        <div class="dep-author">
+          <div class="dep-avatar">J</div>
+          <div class="dep-meta">
+            <div class="name">Juliana R.</div>
+            <div class="desc">Pré e pós-musculação</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="dep-disclaimer">Resultados individuais. Cada plano é construído para você, com base em avaliação técnica.</p>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="micro">Dúvidas frequentes</span>
+      <h2>As perguntas que mais <em>chegam pra mim</em>.</h2>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          Como funciona o atendimento online?
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Por videochamada. Você não precisa morar na mesma cidade que eu. Faço atendimento individualizado pra mulheres em todo o Brasil, com o mesmo cuidado de uma consulta presencial.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          O plano serve pra emagrecer ou pra ganhar massa?
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Os dois. O plano é individualizado pro seu objetivo. Se você quer mudar composição corporal, ganhar massa magra, perder gordura ou melhorar performance no treino, montamos junto o caminho.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          Preciso ter restrição alimentar pra ser sua paciente?
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Não. As receitas sem glúten, sem lactose e sem açúcar são a assinatura da casa, mas o plano serve pra qualquer mulher que queira comer melhor. Se você tem restrição, tem o plus de receita pensada pra você.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          Quanto tempo leva pra ver resultado?
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Depende do seu ponto de partida, da sua aderência e do seu objetivo. O que eu garanto é o processo, não a velocidade. Trabalho com resultado sustentável, não com promessa milagrosa.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          As receitas vêm em ebook ou são individuais?
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>As receitas funcionais fazem parte do acompanhamento, são entregues conforme seu plano e seu paladar. Não é receita genérica, é o que combina com você.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          Como faço pra começar?
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>É só clicar no botão de agendar consulta. A gente conversa primeiro pra entender se faz sentido pra você, sem compromisso.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="cta-final" id="contato">
+  <div class="container cta-final-inner reveal">
+    <span class="micro">Pronto pra começar?</span>
+    <h2>O próximo capítulo<br>começa <em>na próxima refeição</em>.</h2>
+    <p>Agende uma conversa inicial e me conta o que você quer construir. A partir daí, a gente desenha o caminho juntas.</p>
+    <div class="hero-ctas" style="justify-content: center;">
+      <a href="#" class="btn btn-primary js-whats" id="ctaWhats">
+        <svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar no WhatsApp
+      </a>
+      <a href="https://instagram.com/" target="_blank" class="btn btn-ghost" id="ctaInsta">
+        Seguir no Instagram
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="mark">mariana medeiros</div>
+        <div class="tag">Nutri esportiva · NutriChef</div>
+        <p>Acompanhamento nutricional individualizado pra mulheres que querem construir o corpo dos sonhos sem brigar com a comida.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Navegação</h4>
+        <a href="#sobre">Sobre</a>
+        <a href="#para-quem">Para quem é</a>
+        <a href="#processo">Como funciona</a>
+        <a href="#receitas">Receitas</a>
+        <a href="#faq">Dúvidas</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contato</h4>
+        <span>WhatsApp em breve</span>
+        <span>contato@em-breve.com.br</span>
+        <span>Atendimento online</span>
+      </div>
+      <div class="foot-col">
+        <h4>Redes</h4>
+        <div class="foot-social">
+          <a href="https://instagram.com/" target="_blank" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="js-whats" id="footWhats" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 Mariana Medeiros · Todos os direitos reservados.</div>
+      <div class="crn">CRN a confirmar</div>
+      <div class="foot-credit">
+        site por
+        <a href="https://instagram.com/sejacriativvo" target="_blank" rel="noopener noreferrer" class="brand-criativvo">criativvo</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ MARCA D'ÁGUA CRIATIVVO ============ -->
+<a href="https://instagram.com/sejacriativvo" target="_blank" rel="noopener noreferrer" class="made-by" id="madeBy" aria-label="Site feito por Criativvo">
+  <span class="label">site por</span>
+  <span class="brand">criativvo</span>
+</a>
+
+<!-- ============ WHATSAPP FLOAT ============ -->
+<a href="#" class="wa-float js-whats" id="waFloat" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  // ====== Marca d'água Criativvo: aparece com fade-in suave 1.2s depois do load ======
+  setTimeout(() => document.getElementById('madeBy')?.classList.add('is-ready'), 1200);
+
+  // ====== NAV scroll ======
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  }, { passive: true });
+
+  // ====== Mobile menu ======
+  const burger = document.getElementById('navBurger');
+  const mobMenu = document.getElementById('mobileMenu');
+  const mobClose = document.getElementById('mobileClose');
+  function openMobMenu() { mobMenu.classList.add('open'); document.body.classList.add('menu-open'); }
+  function closeMobMenu() { mobMenu.classList.remove('open'); document.body.classList.remove('menu-open'); }
+  burger?.addEventListener('click', openMobMenu);
+  mobClose?.addEventListener('click', closeMobMenu);
+  mobMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobMenu));
+
+  // ====== Reveal on scroll ======
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-stagger').forEach(el => {
+    observer.observe(el);
+  });
+
+  // ====== MARQUEE INFINITO (mobile) — pausa ao tocar e quando sai do viewport ======
+  (function initTrailMarquee() {
+    if (!window.matchMedia('(max-width: 980px)').matches) return;
+    const marquee = document.getElementById('trailMarquee');
+    const section = document.getElementById('trail');
+    if (!marquee || !section) return;
+    const track = marquee.querySelector('.trail-marquee-track');
+    if (!track) return;
+
+    // tap pra pausar / retomar
+    let paused = false;
+    marquee.addEventListener('click', () => {
+      paused = !paused;
+      marquee.classList.toggle('is-paused', paused);
+    });
+
+    // pausa quando a seção sai do viewport (economiza CPU/bateria)
+    if ('IntersectionObserver' in window) {
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          track.style.animationPlayState = (e.isIntersecting && !paused) ? 'running' : 'paused';
+        });
+      }, { threshold: 0 });
+      obs.observe(section);
+    }
+  })();
+
+  // ====== GIROSCÓPIO nos cards de receita (mobile) — tombar o celular inclina os cards ======
+  (function initGyroTilt() {
+    if (!window.matchMedia('(hover: none), (pointer: coarse)').matches) return;
+    const cards = Array.from(document.querySelectorAll('.rec-card'));
+    if (!cards.length) return;
+    if (!('DeviceOrientationEvent' in window)) return;
+
+    const prompt = document.getElementById('gyroPrompt');
+    if (!prompt) return;
+
+    const MAX_TILT = 7;  // graus, sutil pra não enjoar
+    let lastTilt = { x: 0, y: 0 };
+    let smoothed = { x: 0, y: 0 };
+    let raf = false;
+    let active = false;
+
+    function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+
+    function onOrient(e) {
+      // gamma: rotação ao longo do eixo Y (esq/dir, -90 a 90)
+      // beta: rotação ao longo do eixo X (frente/trás, -180 a 180)
+      const g = e.gamma || 0;
+      const b = e.beta || 0;
+      // mapeia: gamma ±20° → rotateY ±MAX_TILT, beta (centrado em 45° pra uso natural do celular)
+      const rotY = clamp(g / 20 * MAX_TILT, -MAX_TILT, MAX_TILT);
+      const rotX = clamp(-(b - 45) / 30 * MAX_TILT, -MAX_TILT, MAX_TILT);
+      lastTilt = { x: rotX, y: rotY };
+      if (!raf) { requestAnimationFrame(applyTilt); raf = true; }
+    }
+
+    function applyTilt() {
+      raf = false;
+      // smoothing exponencial
+      smoothed.x += (lastTilt.x - smoothed.x) * 0.12;
+      smoothed.y += (lastTilt.y - smoothed.y) * 0.12;
+      cards.forEach(c => {
+        if (!c.classList.contains('entered')) return;  // só depois que o card entrou
+        c.style.transform = `perspective(900px) rotateX(${smoothed.x.toFixed(2)}deg) rotateY(${smoothed.y.toFixed(2)}deg)`;
+      });
+      // continua animando até parar
+      if (Math.abs(lastTilt.x - smoothed.x) > 0.05 || Math.abs(lastTilt.y - smoothed.y) > 0.05) {
+        requestAnimationFrame(applyTilt); raf = true;
+      }
+    }
+
+    const promptText = prompt.querySelector('.gyro-prompt-text');
+
+    function enableGyro() {
+      window.addEventListener('deviceorientation', onOrient, true);
+      cards.forEach(c => c.classList.add('gyro-active'));
+      active = true;
+      prompt.classList.add('is-active');
+      if (promptText) promptText.textContent = '3D ativado';
+    }
+
+    // iOS 13+ exige permissão explícita
+    const needsPermission = typeof DeviceOrientationEvent.requestPermission === 'function';
+
+    // pointerup evita o duplo-tap iOS (1º tap = hover, 2º = click no padrão)
+    const evt = ('PointerEvent' in window) ? 'pointerup' : 'click';
+
+    if (!needsPermission) {
+      // Android: liga ao tocar
+      prompt.addEventListener(evt, (e) => {
+        e.preventDefault();
+        if (!active) enableGyro();
+      });
+      return;
+    }
+
+    // iOS: tap → pede permissão (precisa rodar dentro de user gesture)
+    prompt.addEventListener(evt, async (e) => {
+      e.preventDefault();
+      if (active) return;
+      try {
+        const res = await DeviceOrientationEvent.requestPermission();
+        if (res === 'granted') enableGyro();
+      } catch (_) {}
+    });
+  })();
+
+  // ====== PARALLAX LEVE no hero (mobile only) — foto sobe mais devagar que o texto ======
+  (function initHeroParallax() {
+    if (!window.matchMedia('(max-width: 980px)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const bg = document.querySelector('.hero-bg');
+    const hero = document.querySelector('.hero');
+    if (!bg || !hero) return;
+
+    let ticking = false;
+    function update() {
+      const rect = hero.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > window.innerHeight) {
+        ticking = false; return;
+      }
+      // foto sobe a 0.35x a velocidade do scroll (sutil, não dramatic)
+      const offset = Math.max(-80, Math.min(80, window.scrollY * 0.35));
+      bg.style.transform = `translateY(${offset.toFixed(1)}px) scale(1.06)`;
+      ticking = false;
+    }
+    window.addEventListener('scroll', () => {
+      if (!ticking) { requestAnimationFrame(update); ticking = true; }
+    }, { passive: true });
+    update();
+  })();
+
+  // ====== FOCUS SEQUENCIAL (mobile) — em cada grupo, o card mais centralizado fica destacado ======
+  (function initSequentialFocus() {
+    if (!window.matchMedia('(hover: none), (pointer: coarse)').matches) return;
+
+    // grupos: cada entrada tem (sectionId, cardSelector)
+    const groups = [
+      { secId: 'para-quem', sel: '.pq-card' },
+      { secId: 'processo',  sel: '.proc-step' },
+      { secId: 'pilares',   sel: '.pil-item' },
+      { secId: 'depoimentos', sel: '.dep-card' },
+    ];
+
+    let ticking = false;
+    const activeGroups = new Set();
+
+    const builtGroups = groups.map(g => {
+      const section = document.getElementById(g.secId);
+      const items = section ? Array.from(section.querySelectorAll(g.sel)) : [];
+      return { ...g, section, items };
+    }).filter(g => g.section && g.items.length);
+
+    function updateGroup(g) {
+      const viewportCenter = window.innerHeight / 2;
+      let focusIdx = -1;
+      let minDist = Infinity;
+      g.items.forEach((it, i) => {
+        const r = it.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > window.innerHeight) return;
+        const itCenter = r.top + r.height / 2;
+        const dist = Math.abs(itCenter - viewportCenter);
+        if (dist < minDist) { minDist = dist; focusIdx = i; }
+      });
+      g.items.forEach((it, i) => it.classList.toggle('is-focused', i === focusIdx));
+    }
+
+    function update() {
+      ticking = false;
+      activeGroups.forEach(g => updateGroup(g));
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) { requestAnimationFrame(update); ticking = true; }
+    }, { passive: true });
+
+    // só observa scroll quando a seção tá visível (economia)
+    if ('IntersectionObserver' in window) {
+      builtGroups.forEach(g => {
+        const obs = new IntersectionObserver(entries => {
+          entries.forEach(e => {
+            if (e.isIntersecting) {
+              activeGroups.add(g);
+              updateGroup(g);
+            } else {
+              activeGroups.delete(g);
+              g.items.forEach(it => it.classList.remove('is-focused'));
+            }
+          });
+        }, { threshold: 0, rootMargin: '0px 0px -10% 0px' });
+        obs.observe(g.section);
+      });
+    } else {
+      builtGroups.forEach(g => activeGroups.add(g));
+    }
+    update();
+  })();
+
+
+  // ====== TILT DE ENTRADA + TAP STATE nos cards de receita (mobile) ======
+  (function initRecipeMobileEntry() {
+    if (!window.matchMedia('(hover: none), (pointer: coarse)').matches) return;
+    const cards = document.querySelectorAll('.rec-card');
+    if (!cards.length) return;
+
+    // entra com tilt animado quando aparece na tela
+    const io = new IntersectionObserver(entries => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          // stagger leve
+          setTimeout(() => e.target.classList.add('entered'), Array.from(cards).indexOf(e.target) * 120);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.18, rootMargin: '0px 0px -40px 0px' });
+    cards.forEach(c => io.observe(c));
+
+    // tap feedback (responde ao toque)
+    cards.forEach(c => {
+      c.addEventListener('touchstart', () => c.classList.add('tap-active'), { passive: true });
+      const remove = () => c.classList.remove('tap-active');
+      c.addEventListener('touchend', remove, { passive: true });
+      c.addEventListener('touchcancel', remove, { passive: true });
+    });
+  })();
+
+  // ====== TILT 3D nos cards de Vitrine de Receitas (padrão Marcio) ======
+  (function initRecipeTilt() {
+    if (window.matchMedia('(hover: none), (pointer: coarse)').matches) return;
+    const cards = document.querySelectorAll('.rec-card');
+    if (!cards.length) return;
+
+    const MAX_TILT = 12;
+    const LIFT = 14;
+    const LERP = 0.18;
+
+    cards.forEach(card => {
+      const s = {
+        rotX: 0, rotY: 0, lift: 0,
+        tRotX: 0, tRotY: 0, tLift: 0,
+        running: false,
+        inside: false,
+      };
+
+      function apply() {
+        const shX = -(s.rotY / MAX_TILT) * 28;
+        const shY = -(s.rotX / MAX_TILT) * 28;
+        card.style.transform =
+          `rotateX(${s.rotX.toFixed(2)}deg) rotateY(${s.rotY.toFixed(2)}deg) ` +
+          `translateY(${(-s.lift).toFixed(2)}px)`;
+        if (s.inside || s.lift > 0.5) {
+          card.style.boxShadow =
+            `${shX.toFixed(0)}px ${(38 + shY).toFixed(0)}px 78px rgba(31, 45, 26, 0.22)`;
+        }
+      }
+
+      function loop() {
+        s.rotX += (s.tRotX - s.rotX) * LERP;
+        s.rotY += (s.tRotY - s.rotY) * LERP;
+        s.lift += (s.tLift - s.lift) * LERP;
+        apply();
+
+        const diff =
+          Math.abs(s.tRotX - s.rotX) +
+          Math.abs(s.tRotY - s.rotY) +
+          Math.abs(s.tLift - s.lift);
+
+        if (diff > 0.05) {
+          requestAnimationFrame(loop);
+        } else {
+          s.running = false;
+          if (!s.inside && s.tRotX === 0 && s.tRotY === 0 && s.tLift === 0) {
+            card.style.transform = '';
+            card.style.boxShadow = '';
+            card.classList.remove('tilting');
+          }
+        }
+      }
+
+      function startLoop() {
+        if (!s.running) {
+          s.running = true;
+          requestAnimationFrame(loop);
+        }
+      }
+
+      card.addEventListener('mouseenter', () => {
+        s.inside = true;
+        card.classList.add('tilting');
+      });
+
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const cx = rect.width / 2;
+        const cy = rect.height / 2;
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        s.tRotY = ((x - cx) / cx) * MAX_TILT;
+        s.tRotX = -((y - cy) / cy) * MAX_TILT;
+        s.tLift = LIFT;
+        startLoop();
+      });
+
+      card.addEventListener('mouseleave', () => {
+        s.inside = false;
+        s.tRotX = 0;
+        s.tRotY = 0;
+        s.tLift = 0;
+        startLoop();
+      });
+    });
+  })();
+
+  // ====== IMAGE TRAIL (academia) — só no desktop ======
+  (function initTrail() {
+    if (window.matchMedia('(max-width: 980px)').matches) return;
+    const trail = document.getElementById('trail');
+    const cursor = document.getElementById('trailCursor');
+    if (!trail) return;
+
+    const images = [
+      'assets/academia/trail-01.jpg',
+      'assets/academia/trail-02.jpg',
+      'assets/academia/trail-03.jpg',
+      'assets/academia/trail-04.jpg',
+      'assets/academia/trail-05.jpg',
+      'assets/academia/trail-06.jpg',
+      'assets/academia/trail-07.jpg',
+      'assets/academia/trail-08.jpg',
+      'assets/academia/trail-09.jpg',
+      'assets/academia/trail-10.jpg',
+    ];
+
+    // pre-load (silencioso)
+    images.forEach(src => { const i = new Image(); i.src = src; });
+
+    let idx = 0;
+    let lastX = 0, lastY = 0;
+    let lastSpawn = 0;
+    const minDist = 90;       // distância mínima entre spawns
+    const cooldown = 110;     // ms entre spawns
+
+    const rect = () => trail.getBoundingClientRect();
+
+    function spawn(x, y) {
+      const img = document.createElement('img');
+      img.src = images[idx % images.length];
+      img.className = 'trail-img is-active';
+      img.style.left = x + 'px';
+      img.style.top = y + 'px';
+      const rot = (Math.random() * 16 - 8).toFixed(1);
+      img.style.setProperty('--rot', rot + 'deg');
+      trail.appendChild(img);
+      idx++;
+      setTimeout(() => img.remove(), 1300);
+    }
+
+    trail.addEventListener('mouseenter', () => trail.classList.add('active'));
+    trail.addEventListener('mouseleave', () => trail.classList.remove('active'));
+
+    trail.addEventListener('mousemove', (e) => {
+      const r = rect();
+      const x = e.clientX - r.left;
+      const y = e.clientY - r.top;
+
+      cursor.style.left = x + 'px';
+      cursor.style.top = y + 'px';
+
+      const dx = x - lastX, dy = y - lastY;
+      const dist = Math.hypot(dx, dy);
+      const now = Date.now();
+      if (dist > minDist && now - lastSpawn > cooldown) {
+        spawn(x, y);
+        lastX = x; lastY = y;
+        lastSpawn = now;
+      }
+    });
+  })();
+
+  // ====== FAQ accordion (pointerup evita duplo-tap iOS por causa do :hover) ======
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    const toggle = (e) => {
+      e.preventDefault();
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    };
+    // pointerup cobre mouse + touch + pen num evento só (sem duplo dispatch iOS)
+    if ('PointerEvent' in window) {
+      btn.addEventListener('pointerup', toggle);
+    } else {
+      btn.addEventListener('click', toggle);
+    }
+  });
+
+  // ====== WhatsApp — abre direto, mensagem personalizada por origem do clique ======
+  const WHATS_NUMBER = '5538999455978'; // +55 38 99945-5978
+
+  // mensagem padrão por botão (a chave bate com o ID do elemento)
+  const WHATS_MSG = {
+    navWhats:    'Oi Mariana! Vim pelo site e quero agendar uma consulta.',
+    heroWhats:   'Oi Mariana! Vim pelo site e quero agendar uma consulta.',
+    mobMenuWhats:'Oi Mariana! Vim pelo site e quero agendar uma consulta.',
+    ctaWhats:    'Oi Mariana! Vim pelo site e quero saber mais sobre o acompanhamento.',
+    footWhats:   'Oi Mariana! Vim pelo site e gostaria de tirar uma dúvida.',
+    waFloat:     'Oi Mariana! Vim pelo seu site, quero conversar.',
+  };
+  const DEFAULT_MSG = 'Oi Mariana! Vim pelo site, quero saber mais sobre a consultoria.';
+
+  function buildWaUrl(msg) {
+    return `https://wa.me/${WHATS_NUMBER}?text=${encodeURIComponent(msg)}`;
+  }
+
+  // seta href em todos os botões .js-whats (abrir em nova aba)
+  document.querySelectorAll('.js-whats').forEach(link => {
+    const msg = WHATS_MSG[link.id] || DEFAULT_MSG;
+    link.setAttribute('href', buildWaUrl(msg));
+    link.setAttribute('target', '_blank');
+    link.setAttribute('rel', 'noopener noreferrer');
+  });
+</script>
+
+</body>
+</html>

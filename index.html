@@ -12,8 +12,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 
 <!-- preload do hero responsivo (carrega primeiro pra LCP rápido) -->
-<link rel="preload" as="image" href="assets/foto-header-mobile.jpg?v=6" media="(max-width: 980px)">
-<link rel="preload" as="image" href="assets/foto-header-desktop.jpg?v=6" media="(min-width: 981px)">
+<link rel="preload" as="image" href="assets/foto-header-mobile.jpg?v=7" media="(max-width: 980px)">
+<link rel="preload" as="image" href="assets/foto-header-desktop.jpg?v=7" media="(min-width: 981px)">
 
 <style>
   /* ============ FONTE CRIATIVVO (marca d'água) ============ */
@@ -264,9 +264,9 @@
   .hero-bg {
     position: absolute; inset: 0;
     z-index: 0;
-    background-image: url("assets/foto-header-desktop.jpg?v=6");
+    background-image: url("assets/foto-header-desktop.jpg?v=7");
     background-size: cover;
-    background-position: center;
+    background-position: right center;
     filter: saturate(1.05) contrast(1.02);
   }
   .hero-overlay {
@@ -287,7 +287,7 @@
   /* Mobile: foto vertical da Mariana + scrim plum pra leitura */
   @media (max-width: 980px) {
     .hero-bg {
-      background-image: url("assets/foto-header-mobile.jpg?v=6");
+      background-image: url("assets/foto-header-mobile.jpg?v=7");
       background-size: cover;
       background-position: center 20%;
       filter: saturate(1.04) contrast(1.02);
@@ -1753,7 +1753,7 @@
   <div class="container">
     <div class="sobre-grid">
       <div class="sobre-img-wrap reveal-left">
-        <img src="assets/cozinha.jpg" alt="Mariana Medeiros, nutricionista esportiva e NutriChef" loading="lazy">
+        <img src="assets/cozinha.jpg?v=2" alt="Mariana Medeiros, nutricionista esportiva e NutriChef" loading="lazy">
         <div class="sobre-img-frame"></div>
       </div>
 
